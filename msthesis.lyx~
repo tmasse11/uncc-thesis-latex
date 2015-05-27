@@ -508,7 +508,7 @@ Quadrotor Platforms are unmanned aerial vehicles that are composed of four
  platforms are attractive for hobbyist, surveillance, and payload manipulation.
  In the commercial industry, interest for quadrotor platforms is prevalent.
  DHL is such a company that has pursed the potential benefits of using quadrotor
- platforms for payload manipulation as seen in
+ platforms for payload manipulation as seen in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:DHL-Quadrotor-Unmanned"
@@ -516,7 +516,7 @@ reference "fig:DHL-Quadrotor-Unmanned"
 \end_inset
 
  .
- As shown in 
+ As shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:DHL-Quadrotor-Unmanned"
@@ -615,7 +615,7 @@ ed a centralized quadrotor swarm that perform various aerial maneuvers as
  depicted in
 \begin_inset CommandInset citation
 LatexCommand cite
-key "DBLP:journals/arobots/KushleyevMPK13"
+key "GRASP"
 
 \end_inset
 
@@ -669,7 +669,7 @@ Recently, GRASP laboratory of University of Pennsilvaynia has constructed
  a swarm of agile micro quadrotors
 \begin_inset CommandInset citation
 LatexCommand cite
-key "DBLP:journals/arobots/KushleyevMPK13"
+key "GRASP"
 
 \end_inset
 
@@ -678,7 +678,7 @@ key "DBLP:journals/arobots/KushleyevMPK13"
  were utilized.
  Each participating micro quadrotor is outfitted with a flight control board,
  Electronic Speed Control motors, power supply, and Zigbee protocoled transceive
-rs as depicted in 
+rs as depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Micro-Quadrotor GRASP Laboratory"
@@ -688,7 +688,7 @@ reference "fig:Micro-Quadrotor GRASP Laboratory"
  from 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "DBLP:journals/arobots/KushleyevMPK13"
+key "GRASP"
 
 \end_inset
 
@@ -781,7 +781,7 @@ The main strengths of the research proposed by GRASP laboratory are that
  ease.
  The major drawback of the centralized coordination scheme is that the resulting
  swarm is confined to a certain region due to its dependence on an external
- vision system and base station as shown in 
+ vision system and base station as shown in Figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Micro-Quadrotor-Swarm GRASP "
@@ -1373,14 +1373,6 @@ Linear fitting translational displacement to KL and average overall severity.
 
 \end_layout
 
-\begin_layout LyX-Code
-CONCLUSIONS
-\end_layout
-
-\begin_layout Standard
-Results and observations will be documented here.
-\end_layout
-
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -1511,7 +1503,15 @@ detailed descriptions of procedures, which go beyond the general outline
 \begin_layout Enumerate
 a particularly extensive review of the literature and other information
  that may be useful to future scholars who may wish to delve more deeply
- into the research topic.
+ into the research topic
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Enumerate
+.
 \end_layout
 
 \begin_layout Section
