@@ -879,19 +879,7 @@ The contributions of this research is the establishment of the de-centralized
  based on a existing vision system that reports a position of a quadrotor
  based on its orientation to a beacon, obstacle dection within the swarm
  for early obstacle advoidance protocol, a process for swarm maintence within
- the swarm, and a framework to communicate with an existing quadrotor flight
- controller in order so that the quadrotor can carry out movement commands
- issued by the swarm algorithm.
- 
-\end_layout
-
-\begin_layout Standard
-These contributions are advantegous in the sense that a de-centralized swarm
- algorithm will gurantee a more flexible swarm deployement in where the
- swarm is not confined to a certain area.
- This allows the swarm to approach more versatile missions such as survelliance
- in a environment non accessible to humans.
- 
+ the swarm, and a framework 
 \end_layout
 
 \begin_layout Chapter
