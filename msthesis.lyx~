@@ -894,7 +894,7 @@ The aerodynamic drag experienced by the quadrotor can be re-written as
 
 \begin_layout Standard
 where 
-\begin_inset Formula $k_{drag}=\frac{1}{2}pA$
+\begin_inset Formula $k_{drag}=\frac{1}{2R}pA$
 \end_inset
 
 
@@ -905,6 +905,14 @@ key "QUADROTORCRAFTCONTROL"
 \end_inset
 
 .
+ It can be assumed that 
+\begin_inset Formula $k_{drag}$
+\end_inset
+
+ is a positive constant, due to the constant radius of the rotor blade,
+ constant surface area of the blade, and the constant air pressure in the
+ atmosphere for near surface flight (less than 100ft).
+ 
 \end_layout
 
 \begin_layout Standard
@@ -919,7 +927,7 @@ status open
 
 \end_inset
 
-
+`
 \end_layout
 
 \begin_layout Plain Layout
@@ -948,42 +956,13 @@ name "fig:Quadrotor-Platform-Movement-Model"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-A quadrotor swarm is advantageous in situations where an explanatory effort
- is required for a large area.
- For example, a large natural disaster area that requires surveying for
- damage analysis would benefit from a swarm of quadrotors that autonomously
- collaborate with each other in order to sweep a large area in a quick timeframe.
- Also with a quadrotor swarm, the information that the participating quadrotors
- can be shared within the swarm so that simple decisions can be made without
- human interference, for example, a participating quadrotor notifies the
- swarm that a certain sector within a survey region has been explored already,
- thus allowing for the swarm to move to the next sector without the wasted
- costs of re surveying a previous sector.
- Another benefit of quadrotor swarms lies within the robust nature of the
- swarm system.
- With a singular quadrotor, the exploratory mission is compromised when
- the quadrotor is terminated (due to depletion of power supply, various
- environmental influences,etc.).
- Therefore the success of the objective is influenced by the lifetime of
- quadrotor node.
- In comparison, the lifetime of a quadrotor swarm is influenced by the number
- active nodes within the swarm.
- Typically the integrity of the mission is not compromised until all quadrotor
- participants within the swarm are terminated.
- This allows quadrotor swarms to behave in a robust manner in where they
- can still perform a mission even in the presence of terminated or damaged
- quadrotor nodes.
- 
+
 \end_layout
 
 \begin_layout Section
@@ -1159,8 +1138,45 @@ name "fig:Micro-Quadrotor-Swarm GRASP "
 
 \end_layout
 
-\begin_layout Subsection
-Proposed Research Contribution
+\begin_layout Chapter
+research overview 
+\end_layout
+
+\begin_layout Section
+Motivation for Quadrotor Swarm 
+\end_layout
+
+\begin_layout Standard
+A quadrotor swarm is advantageous in situations where an explanatory effort
+ is required for a large area.
+ For example, a large natural disaster area that requires surveying for
+ damage analysis would benefit from a swarm of quadrotors that autonomously
+ collaborate with each other in order to sweep a large area in a quick timeframe.
+ Also with a quadrotor swarm, the information that the participating quadrotors
+ can be shared within the swarm so that simple decisions can be made without
+ human interference, for example, a participating quadrotor notifies the
+ swarm that a certain sector within a survey region has been explored already,
+ thus allowing for the swarm to move to the next sector without the wasted
+ costs of re surveying a previous sector.
+ Another benefit of quadrotor swarms lies within the robust nature of the
+ swarm system.
+ With a singular quadrotor, the exploratory mission is compromised when
+ the quadrotor is terminated (due to depletion of power supply, various
+ environmental influences,etc.).
+ Therefore the success of the objective is influenced by the lifetime of
+ quadrotor node.
+ In comparison, the lifetime of a quadrotor swarm is influenced by the number
+ active nodes within the swarm.
+ Typically the integrity of the mission is not compromised until all quadrotor
+ participants within the swarm are terminated.
+ This allows quadrotor swarms to behave in a robust manner in where they
+ can still perform a mission even in the presence of terminated or damaged
+ quadrotor nodes.
+ 
+\end_layout
+
+\begin_layout Section
+Research Contribution
 \end_layout
 
 \begin_layout Standard
@@ -1214,10 +1230,6 @@ These contributions are advantegous in the sense that a de-centralized swarm
  This allows the swarm to approach more versatile missions such as survelliance
  in a environment non accessible to humans.
  
-\end_layout
-
-\begin_layout Chapter
-Quadrotor Platform
 \end_layout
 
 \begin_layout Section
