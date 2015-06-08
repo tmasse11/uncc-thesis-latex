@@ -285,23 +285,11 @@ makecopyright
 \end_layout
 
 \begin_layout Abstract
-Recently, small unmanned areial arcraft known as quadcopters, or quadrotors,
- have received a vast amount of interest from fields in academia and industry.
- These aircraft have the ability to vertically takeoff and move various
- axis of freedom with great precision and stablity.
- They are also capable of carrying small payloads depending on equipment
- and application.
- The most prevalent application for these aircraft is survellance and land
- surveying from high altitudes and positions not obtainable by humans.
- This is achieved through outfitting quadrotors with video capture equipment
- as well as various other sensors.
- Other applications currently being explored are delievery services, i.e.
- Amazon drones or Matternet.
- Other than the mentioned applications, the potential use for data acquistion
- in un reachable environments by these quadrotors is highly valuable.
- The precision of movement displayed by quadrotors makes them a perfect
- candidate for reconnaissance in small areas where the margin of flight
- error is minimal.
+Unmanned areial arcraft known as quadcopters, or quadrotors have the ability
+ to vertically takeoff and move various axis of freedom with good precision
+ and stablity.The most prevalent applications for these aircraft are payload
+ transport, area survellance, and land surveying from high altitudes and
+ positions not obtainable by humans.
  In recent years, there have been an interest in applying multiple quadrotors
  to a certain task through the use of a quadrotor swarm.
  
@@ -309,45 +297,34 @@ Recently, small unmanned areial arcraft known as quadcopters, or quadrotors,
 
 \begin_layout Abstract
 Many situations occur in which there is a need for some type of explanatory
- effort is required for a large area.
- In some cases, the environment in which the search takes place may be inaccessi
-ble to humans or may include hazardous material or unsafe structures, such
+ effort required for a large area that may be inaccessible to humans such
  as nuclear power plants, or disaster areas.
- These scenarios require humans to determine a way to precisely maneuver
- through an area while recording information and possibly retrieving objects.
- While a group of humans with remote controlled quadrotors may be able to
- acomplish these tasks, it may take longer than necessary, and there may
- be an introduction of human error in communication and coordination within
- the task.
- A quadrotor swarm proposes to share the knowledge between all of the quadrotors.
- This means that quadrotors in a swarm will not search areas that other
- quadrotors have already searched.
- Where it may take a group of pilots multiple hours to full search a foreign
- environment, it will take a autonomous quadrotor swarm a fraction of the
- time.
- Current research in the community for swarm algorithms does not take into
- account close-quarters or inaccessible evnironments.
- Those networks require the use of a stationary, off-board coordination
- platform such as a processing terminal with a camera that captures the
- positions of all quadrotors and facilitate swarm coordination from a distance.
- This requires the swarm to be in the same area as the off-board terminal.
- The research presented in this thesis aims to place the swarm coordination
- algorithm within the swarm itself, granting more flexibility to the swarm.
+ A quadrotor swarm is attractive for these applications because it proposes
+ a method to autonomously share mission information between all of the participa
+ting quadrotors and collaboratively complete a task.
+ This allows an autonomous quadrotor swarm to perform tasks quickly when
+ compared to manual operating quadrotors.
+ Current research in quadrotor swarm algorithms does not take into account
+ inaccessible or remote evnironments.
+ Those swarms require the use of a stationary, remote coordination platform
+ that tracks the position of the swarm and facilitate swarm coordination
+ from a distance.
+ This requires the swarm to be within line-of-sight of the remote coordinator.
  
 \end_layout
 
 \begin_layout Abstract
-In order for a quadrotor swarm to be effective, each member of the swarm
- will need to be able to locate one another in order to set up a formation
- that is requested.
- To do this, a vision system and coordination system is placed on each quadrotor.
- The vision system aims to provide the quadrotors vital position information
- within the swarm.
- By using a camera and a set of beacons on each quadrotor, each member of
- the swarm will have information of its location within the swarm.
- The coordination system aims to establish a protocol for communication
- between participating quadrotors and essentially provide situational awarness
- within the swarm during movements and overall flight pattern executions.
+The research presented in this thesis aims to add more deployment and operation
+ flexibility to a quadrotor swarm through the use of a de-centralized coordinati
+on algorithm in a wireless environment and a pre-exisiting on-board vision
+ system.
+ The constructed de-centralized coordination algorithm provides a method
+ to track the position of all participating quadrotors, maintain the geometric
+ integrity of the swarm through coordinating specific movement commands
+ to the followers, establishes a method to uniformly move the swarm to a
+ desired posiiton, and provide situational awareness to the swarm through
+ collision detection.
+ 
 \end_layout
 
 \begin_layout Acknowledgements
@@ -958,10 +935,6 @@ name "fig:Quadrotor-Platform-Movement-Model"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
