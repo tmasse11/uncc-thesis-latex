@@ -493,12 +493,16 @@ bodychapterformat
 
 \end_layout
 
-\begin_layout Chapter*
-INTRODUCTION
+\begin_layout Chapter
+Background 
+\end_layout
+
+\begin_layout Section
+Quadrotor Platform Overview 
 \end_layout
 
 \begin_layout Standard
-Quadrotor Platforms are unmanned aerial vehicles that are composed of four
+Quadrotor platforms are unmanned aerial vehicles that are composed of four
  rotating propellers.
  The four rotating propellers allow the quad rotor platform to sustain lift,
  and perform various aerial maneuvers with more precision when compared
@@ -561,10 +565,6 @@ name "fig:DHL-Quadrotor-Unmanned"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -595,7 +595,7 @@ ly, having multiple quadrotors autonomously collaborate together in order
  Proposed by M.Sakti Alvissalim in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Network"
+key "NetworkCoverageQuadrotorSwarms"
 
 \end_inset
 
@@ -623,12 +623,338 @@ key "GRASP"
  
 \end_layout
 
-\begin_layout Chapter
-Background 
+\begin_layout Subsection
+Quadrotor Platform Dynamic Model
 \end_layout
 
-\begin_layout Subsection
-Motivation for Quadrotor Swarm Implementation
+\begin_layout Standard
+A quadrotor is a unmanned arieal vehicle with four rotors.
+ In most quadrotor applications, the rotors on the quadrotor platform are
+ brushless electric motors.
+ Each rotor produces torque, which in turn produces thrust for the quadrotor
+ platform.
+ The higher the angular velocity of the rotor, the more thrust the rotor
+ will produce.
+ Certain combinations of angular velocities of the rotors will generte main
+ thrust, pitch torque, and roll torque for the quadrotor 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "QUADROTORCRAFTCONTROL"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/quadrotor_dyanmic_model.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Quadrotor Dynamic Model.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "QUADROTORCRAFTCONTROL"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Quadrotor-Dynamic-Model"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Depicted in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Quadrotor-Dynamic-Model"
+
+\end_inset
+
+, the front rotor (M
+\begin_inset Formula $_{1}$
+\end_inset
+
+) and the rear rotor (M
+\begin_inset Formula $_{3}$
+\end_inset
+
+) rotate counter-clockwise, whereas the front rotor (M
+\begin_inset Formula $_{2}$
+\end_inset
+
+ and the rear rotor (M
+\begin_inset Formula $_{4}$
+\end_inset
+
+) rotate clockwise in order to produce and overall thrust vector (u) .
+ The overall thrust vector(u) of the quadrotor platform is depicted as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u=f_{1}+f_{2}+f_{3}+f_{4}\label{eq:overall thrust}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where the overall thrust is equal to the summation of the individual thrusts
+ of each motor.
+ The amount of pitch torque that the quadrotor experience is a function
+ of 
+\begin_inset Formula $f_{1}-f_{3}$
+\end_inset
+
+,which is the difference of the thrust exterted by rotor M
+\begin_inset Formula $_{1}$
+\end_inset
+
+and the force exterted by rotor M
+\begin_inset Formula $_{3}$
+\end_inset
+
+.
+ The amount of roll torque that the quadrotor performs is a function of
+ 
+\begin_inset Formula $f_{2}-f_{4}$
+\end_inset
+
+, which is the difference between the thrust exterted by rotor M
+\begin_inset Formula $_{2}$
+\end_inset
+
+and the thrust exterted by the rotor M
+\begin_inset Formula $_{4}$
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "QUADROTORCRAFTCONTROL"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The amount of yaw torque that the quadrotor platform experience is the depicted
+ as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\tau_{Yaw}=\tau_{M_{1}}+\tau_{M_{2}}+\tau_{3_{1}}+\tau_{M_{4}}\label{eq:yaw torque}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\tau_{M_{i}}$
+\end_inset
+
+is the reaction torque of rotor i due to shaft acceleration and blade drag
+ .
+ The reaction torque is equal to the aerodynamic drag seen by the rotor
+ blade.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "QUADROTORCRAFTCONTROL"
+
+\end_inset
+
+.
+ The aerodynamic drag experienced by a given quadrotor rotor is represented
+ as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\tau_{Drag}=\frac{1}{2}pAv^{2}\label{eq:drag representation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $p$
+\end_inset
+
+ is the air desnity, 
+\begin_inset Formula $A$
+\end_inset
+
+ is the frontal area of the moving rotor blade, and 
+\begin_inset Formula $v$
+\end_inset
+
+ is the blade object's velocity realitve to the air.
+ The angular velocity 
+\begin_inset Formula $ω$
+\end_inset
+
+ is proprotional to the linear velocity 
+\begin_inset Formula $v$
+\end_inset
+
+ and radius 
+\begin_inset Formula $r$
+\end_inset
+
+ of the rotor blade through the relationship depicted in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:angular velocity"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+ω=\frac{v}{r}\label{eq:angular velocity}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The aerodynamic drag experienced by the quadrotor can be re-written as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\tau_{Drag}=k_{drag}ω^{2}\label{eq:aerodynamic drag with angular velocity}
+\end{equation}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $k_{drag}=\frac{1}{2}pA$
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "QUADROTORCRAFTCONTROL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/quadrotor_movement_model.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Quadrotor Platform Movement Model.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "QUADROTORCRAFTCONTROL"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Quadrotor-Platform-Movement-Model"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -660,7 +986,7 @@ A quadrotor swarm is advantageous in situations where an explanatory effort
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Relevant Research
 \end_layout
 
@@ -701,10 +1027,6 @@ key "GRASP"
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
