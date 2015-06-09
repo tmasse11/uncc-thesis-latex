@@ -503,23 +503,19 @@ A quadrotor swarm is advantageous in situations where an explanatory effort
 Research Objectives
 \end_layout
 
-\begin_layout Standard
-
-\end_layout
-
 \begin_layout Section
 Research Contribution
 \end_layout
 
 \begin_layout Standard
-This research aims to establish a framework that can establish a de-centralized
+This research establishs a framework that can establish a de-centralized
  swarm algorithm.
  This is achieved through establishing the swarm coordination process on
  the swarm itself, which is referred to as a de-centralized quadrotor swarm.
  This de-centralized quadrotor swarm is realized through two main aspects
  that must be present.
  An onboard vision system that resides on participating quadrotor platforms
- in the swarm, and a swarm algorithm that is implemented within the swarm
+ in the swarm, and a swarm algorithm that is implem ented within the swarm
  itself.
  The vision system allows the participating quadrotors to establish their
  position in respect to the center of the swarm.
@@ -562,6 +558,10 @@ These contributions are advantegous in the sense that a de-centralized swarm
  This allows the swarm to approach more versatile missions such as survelliance
  in a environment non accessible to humans.
  
+\end_layout
+
+\begin_layout Section
+Organiztion of Thesis
 \end_layout
 
 \begin_layout Chapter
@@ -1029,7 +1029,7 @@ name "fig:Quadrotor-Platform-Movement-Model"
 \end_layout
 
 \begin_layout Section
-Current Research
+Current Swarm Research
 \end_layout
 
 \begin_layout Standard
