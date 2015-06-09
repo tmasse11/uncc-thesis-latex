@@ -287,16 +287,8 @@ makecopyright
 \begin_layout Abstract
 Unmanned areial arcraft known as quadcopters, or quadrotors have the ability
  to vertically takeoff and move various axis of freedom with good precision
- and stablity.The most prevalent applications for these aircraft are payload
- transport, area survellance, and land surveying from high altitudes and
- positions not obtainable by humans.
- In recent years, there have been an interest in applying multiple quadrotors
- to a certain task through the use of a quadrotor swarm.
- 
-\end_layout
-
-\begin_layout Abstract
-Many situations occur in which there is a need for some type of explanatory
+ and stablity.
+ Many situations occur in which there is a need for some type of explanatory
  effort required for a large area that may be inaccessible to humans such
  as nuclear power plants, or disaster areas.
  A quadrotor swarm is attractive for these applications because it proposes
@@ -471,7 +463,109 @@ bodychapterformat
 \end_layout
 
 \begin_layout Chapter
-Background 
+introduction
+\end_layout
+
+\begin_layout Section
+Research Motivation 
+\end_layout
+
+\begin_layout Standard
+A quadrotor swarm is advantageous in situations where an explanatory effort
+ is required for a large area.
+ For example, a large natural disaster area that requires surveying for
+ damage analysis would benefit from a swarm of quadrotors that autonomously
+ collaborate with each other in order to sweep a large area in a quick timeframe.
+ Also with a quadrotor swarm, the information that the participating quadrotors
+ can be shared within the swarm so that simple decisions can be made without
+ human interference, for example, a participating quadrotor notifies the
+ swarm that a certain sector within a survey region has been explored already,
+ thus allowing for the swarm to move to the next sector without the wasted
+ costs of re surveying a previous sector.
+ Another benefit of quadrotor swarms lies within the robust nature of the
+ swarm system.
+ With a singular quadrotor, the exploratory mission is compromised when
+ the quadrotor is terminated (due to depletion of power supply, various
+ environmental influences,etc.).
+ Therefore the success of the objective is influenced by the lifetime of
+ quadrotor node.
+ In comparison, the lifetime of a quadrotor swarm is influenced by the number
+ active nodes within the swarm.
+ Typically the integrity of the mission is not compromised until all quadrotor
+ participants within the swarm are terminated.
+ This allows quadrotor swarms to behave in a robust manner in where they
+ can still perform a mission even in the presence of terminated or damaged
+ quadrotor nodes.
+ 
+\end_layout
+
+\begin_layout Section
+Research Objectives
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
+Research Contribution
+\end_layout
+
+\begin_layout Standard
+This research aims to establish a framework that can establish a de-centralized
+ swarm algorithm.
+ This is achieved through establishing the swarm coordination process on
+ the swarm itself, which is referred to as a de-centralized quadrotor swarm.
+ This de-centralized quadrotor swarm is realized through two main aspects
+ that must be present.
+ An onboard vision system that resides on participating quadrotor platforms
+ in the swarm, and a swarm algorithm that is implemented within the swarm
+ itself.
+ The vision system allows the participating quadrotors to establish their
+ position in respect to the center of the swarm.
+ The swarm algorithm is a communication based algorithm that accepts position
+ data from all participating quadrotors and assigns the approiate movement
+ commands.
+ The swarm algorithm is necessary in establishing situational awareness
+ for each participating quadrotor, and coordinating vectorized movements
+ for the entire swarm.
+ The swarm algorithim, or coordination process resides in a master quadrotor
+ platform that is designated as the coordinator.
+ The other participating quadrotors are designated as followers, and receive
+ movement commands from the coordinator in respect to the current position
+ that the follower advertises to the coordinator.
+ The position data that the follower coordinators are in respect to the
+ coordinator.
+ For scalability, there may be multiple coordinators within a large swarm,
+ in where each coordinator is responsible for its own area, or cluster.
+ The coordinator at the lowest cluster (the first cluste established) will
+ communicate movement vector commands to the rest of the swarm.
+ 
+\end_layout
+
+\begin_layout Standard
+The contributions of this research is the establishment of the de-centralized
+ swarm algorithm/ swarm coordination process that issues movement commands
+ based on a existing vision system that reports a position of a quadrotor
+ based on its orientation to a beacon, obstacle dection within the swarm
+ for early obstacle advoidance protocol, a process for swarm maintence within
+ the swarm, and a framework to communicate with an existing quadrotor flight
+ controller in order so that the quadrotor can carry out movement commands
+ issued by the swarm algorithm.
+ 
+\end_layout
+
+\begin_layout Standard
+These contributions are advantegous in the sense that a de-centralized swarm
+ algorithm will gurantee a more flexible swarm deployement in where the
+ swarm is not confined to a certain area.
+ This allows the swarm to approach more versatile missions such as survelliance
+ in a environment non accessible to humans.
+ 
+\end_layout
+
+\begin_layout Chapter
+background and literature review 
 \end_layout
 
 \begin_layout Section
@@ -631,10 +725,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename figs/quadrotor_dyanmic_model.png
 
@@ -704,7 +794,7 @@ reference "fig:Quadrotor-Dynamic-Model"
 \end_inset
 
 ) rotate clockwise in order to produce and overall thrust vector (u) .
- The overall thrust vector(u) of the quadrotor platform is depicted as
+ The overall thrust vector(u) of the quadrotor platform is depicted as 
 \end_layout
 
 \begin_layout Standard
@@ -904,7 +994,7 @@ status open
 
 \end_inset
 
-`
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -939,7 +1029,7 @@ name "fig:Quadrotor-Platform-Movement-Model"
 \end_layout
 
 \begin_layout Section
-Relevant Research
+Current Research
 \end_layout
 
 \begin_layout Standard
@@ -1102,111 +1192,17 @@ name "fig:Micro-Quadrotor-Swarm GRASP "
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Chapter
-research overview 
+Quadrotor Platform 
 \end_layout
 
 \begin_layout Section
-Motivation for Quadrotor Swarm 
-\end_layout
-
-\begin_layout Standard
-A quadrotor swarm is advantageous in situations where an explanatory effort
- is required for a large area.
- For example, a large natural disaster area that requires surveying for
- damage analysis would benefit from a swarm of quadrotors that autonomously
- collaborate with each other in order to sweep a large area in a quick timeframe.
- Also with a quadrotor swarm, the information that the participating quadrotors
- can be shared within the swarm so that simple decisions can be made without
- human interference, for example, a participating quadrotor notifies the
- swarm that a certain sector within a survey region has been explored already,
- thus allowing for the swarm to move to the next sector without the wasted
- costs of re surveying a previous sector.
- Another benefit of quadrotor swarms lies within the robust nature of the
- swarm system.
- With a singular quadrotor, the exploratory mission is compromised when
- the quadrotor is terminated (due to depletion of power supply, various
- environmental influences,etc.).
- Therefore the success of the objective is influenced by the lifetime of
- quadrotor node.
- In comparison, the lifetime of a quadrotor swarm is influenced by the number
- active nodes within the swarm.
- Typically the integrity of the mission is not compromised until all quadrotor
- participants within the swarm are terminated.
- This allows quadrotor swarms to behave in a robust manner in where they
- can still perform a mission even in the presence of terminated or damaged
- quadrotor nodes.
- 
-\end_layout
-
-\begin_layout Section
-Research Contribution
-\end_layout
-
-\begin_layout Standard
-This research aims to establish a framework that can establish a de-centralized
- swarm algorithm.
- This is achieved through establishing the swarm coordination process on
- the swarm itself, which is referred to as a de-centralized quadrotor swarm.
- This de-centralized quadrotor swarm is realized through two main aspects
- that must be present.
- An onboard vision system that resides on participating quadrotor platforms
- in the swarm, and a swarm algorithm that is implemented within the swarm
- itself.
- The vision system allows the participating quadrotors to establish their
- position in respect to the center of the swarm.
- The swarm algorithm is a communication based algorithm that accepts position
- data from all participating quadrotors and assigns the approiate movement
- commands.
- The swarm algorithm is necessary in establishing situational awareness
- for each participating quadrotor, and coordinating vectorized movements
- for the entire swarm.
- The swarm algorithim, or coordination process resides in a master quadrotor
- platform that is designated as the coordinator.
- The other participating quadrotors are designated as followers, and receive
- movement commands from the coordinator in respect to the current position
- that the follower advertises to the coordinator.
- The position data that the follower coordinators are in respect to the
- coordinator.
- For scalability, there may be multiple coordinators within a large swarm,
- in where each coordinator is responsible for its own area, or cluster.
- The coordinator at the lowest cluster (the first cluste established) will
- communicate movement vector commands to the rest of the swarm.
- 
-\end_layout
-
-\begin_layout Standard
-The contributions of this research is the establishment of the de-centralized
- swarm algorithm/ swarm coordination process that issues movement commands
- based on a existing vision system that reports a position of a quadrotor
- based on its orientation to a beacon, obstacle dection within the swarm
- for early obstacle advoidance protocol, a process for swarm maintence within
- the swarm, and a framework to communicate with an existing quadrotor flight
- controller in order so that the quadrotor can carry out movement commands
- issued by the swarm algorithm.
- 
-\end_layout
-
-\begin_layout Standard
-These contributions are advantegous in the sense that a de-centralized swarm
- algorithm will gurantee a more flexible swarm deployement in where the
- swarm is not confined to a certain area.
- This allows the swarm to approach more versatile missions such as survelliance
- in a environment non accessible to humans.
- 
-\end_layout
-
-\begin_layout Section
-Hardware Architecture
+Hardware Architecture of Quadrotor Platform 
 \end_layout
 
 \begin_layout Subsubsection
@@ -1218,7 +1214,7 @@ Quadrotor Flight Control Board
 \end_layout
 
 \begin_layout Section
-Software Architecture
+Software Architecture of Quadrotor Platform
 \end_layout
 
 \begin_layout Subsubsection
@@ -1230,7 +1226,7 @@ Flight Control Software
 \end_layout
 
 \begin_layout Section
-Flight Capabilities 
+Quadrotor Platform Flight Capabilities 
 \end_layout
 
 \begin_layout Subsection
@@ -1242,66 +1238,78 @@ Tunning capabilities For Flight Precision and Accuracy
 \end_layout
 
 \begin_layout Chapter
-De-Centralized Swarm Platform 
-\end_layout
-
-\begin_layout Standard
-Motivation For Contribution
+Communication Platform 
 \end_layout
 
 \begin_layout Section
-Vision System
+Overview
 \end_layout
 
 \begin_layout Subsection
+Communication Requirements 
+\end_layout
+
+\begin_layout Subsection
+Decision of Platform Selection 
+\end_layout
+
+\begin_layout Section
+Xbee Platform 
+\end_layout
+
+\begin_layout Subsection
+Characteristics of 802.15.4 Protocol
+\end_layout
+
+\begin_layout Chapter
+Vision system used in Swarm Implementation
+\end_layout
+
+\begin_layout Section
 Hardware Architecture
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Software Environment
+\end_layout
+
+\begin_layout Section
+Implementation
+\end_layout
+
+\begin_layout Chapter
+Swarm Algorithm Design and Implementation
 \end_layout
 
 \begin_layout Section
 Swarm Coordination System
 \end_layout
 
-\begin_layout Subsection
-Hardware Architecture 
-\end_layout
-
-\begin_layout Subsection
-Software Environment
-\end_layout
-
-\begin_layout Subsection
-Communication Protocol 
-\end_layout
-
-\begin_layout Subsection
+\begin_layout Section
 Position Recognition and Coordination
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Fine -Granied Position Coordination and Maintenience 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Coarse-Grain Position Maintenience and Movement Vector Construction 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Swarm Maintenience 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Obstacle Early Detection System
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Movement Interface with Flight Controller 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Overall Software Archietecture
 \end_layout
 
@@ -1315,369 +1323,6 @@ Future Work and Concerns
 
 \begin_layout Chapter
 Conclusion
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-
-\size small
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="3">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top" width="1in">
-<column alignment="center" valignment="top" width="1in">
-<column alignment="center" valignment="top" width="1in">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-R
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Overall severity
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-KL-score
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Translation
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-0.68
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-0.28
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
- 
-\begin_inset Formula $\alpha$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-0.34
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-0.17
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-\begin_inset Formula $\beta$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-0.59
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-0.27
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-\begin_inset Formula $\gamma$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-0.53
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-0.29
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\size default
-
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Example of short label.
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:Table2"
-
-\end_inset
-
-This is an example of a table having a long caption whose caption in the
- list of tables is much shorter (from the 
-\begin_inset Quotes eld
-\end_inset
-
-opt
-\begin_inset Quotes erd
-\end_inset
-
- label).
- Correlation coefficient (R) comparison between displacement parameters
- and average overall ranking and KL score.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figs/TransVsKLLine.eps
-	lyxscale 50
-	height 2in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Translational displacement vs.
- Savg; a linear fit 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figs/TransVsKLLine.eps
-	lyxscale 50
-	height 2in
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Translational displacement vs.
- KL; a linear fit 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Shortened figure caption for list of figures.
-\end_layout
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:LinearFit"
-
-\end_inset
-
-Linear fitting translational displacement to KL and average overall severity.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
