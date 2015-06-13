@@ -1460,6 +1460,7 @@ reference "fig:Micro-Quadrotor-Swarm GRASP "
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -1591,12 +1592,43 @@ Swarm Algorithm Design and Implementation
 Communication Platform Library 
 \end_layout
 
-\begin_layout Section
-Position Recognition and Coordination
+\begin_layout Subsubsection
+Capabilities and Functionality
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status open
 
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+test-figure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Position Recognition and Coordination
 \end_layout
 
 \begin_layout Section

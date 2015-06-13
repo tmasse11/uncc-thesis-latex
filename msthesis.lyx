@@ -285,22 +285,18 @@ makecopyright
 \end_layout
 
 \begin_layout Abstract
-Unmanned areial arcraft known as quadcopters, or quadrotors have the ability
- to vertically takeoff and move various axis of freedom with good precision
- and stablity.
- Many situations occur in which there is a need for some type of explanatory
+Many situations occur in which there is a need for some type of exploratory
  effort required for a large area that may be inaccessible to humans such
- as nuclear power plants, or disaster areas.
+ as nuclear power plants or disaster areas.
  A quadrotor swarm is attractive for these applications because it proposes
  a method to autonomously share mission information between all of the participa
 ting quadrotors and collaboratively complete a task.
  This allows an autonomous quadrotor swarm to perform tasks quickly when
- compared to manual operating quadrotors.
+ compared to manually operated quadrotors.
  Current research in quadrotor swarm algorithms does not take into account
  inaccessible or remote evnironments.
- Those swarms require the use of a stationary, remote coordination platform
- that tracks the position of the swarm and facilitate swarm coordination
- from a distance.
+ Those swarms require the use of a remote coordination platform that tracks
+ the position of the swarm and facilitates swarm coordination from a distance.
  This requires the swarm to be within line-of-sight of the remote coordinator.
  
 \end_layout
@@ -311,10 +307,10 @@ The research presented in this thesis aims to add more deployment and operation
 on algorithm in a wireless environment and a pre-exisiting on-board vision
  system.
  The constructed de-centralized coordination algorithm provides a method
- to track the position of all participating quadrotors, maintain the geometric
+ to track the position of all participating quadrotors, maintains the geometric
  integrity of the swarm through coordinating specific movement commands
  to the followers, establishes a method to uniformly move the swarm to a
- desired posiiton, and provide situational awareness to the swarm through
+ desired posiiton, and provides situational awareness to the swarm through
  collision detection.
  
 \end_layout
@@ -515,7 +511,7 @@ This research establishs a framework that can establish a de-centralized
  This de-centralized quadrotor swarm is realized through two main aspects
  that must be present.
  An onboard vision system that resides on participating quadrotor platforms
- in the swarm, and a swarm algorithm that is implem ented within the swarm
+ in the swarm, and a swarm algorithm that is implemented within the swarm
  itself.
  The vision system allows the participating quadrotors to establish their
  position in respect to the center of the swarm.
@@ -1250,6 +1246,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset Graphics
 	filename figs/system_level_arch_GRASP.png
+	scale 85
 
 \end_inset
 
@@ -1386,7 +1383,7 @@ s.
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -1460,6 +1457,7 @@ reference "fig:Micro-Quadrotor-Swarm GRASP "
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -1504,11 +1502,15 @@ Hardware Architecture of Quadrotor Platform
 \end_layout
 
 \begin_layout Subsubsection
-Quadrotor Frame
+Quadrotor Frame 
 \end_layout
 
-\begin_layout Standard
-The quadrotor frame that was used in the conducted research is 
+\begin_layout Subsubsection
+Quadrtoror Power Supply 
+\end_layout
+
+\begin_layout Subsubsection
+Motors 
 \end_layout
 
 \begin_layout Subsubsection
@@ -1552,7 +1554,13 @@ Overview
 \end_layout
 
 \begin_layout Subsection
-Communication Requirements 
+Requirements and Desired Functionality of the Communication Platform
+\end_layout
+
+\begin_layout Standard
+The purpose of the communication platform within the swarm is to provide
+ a wireless medium to transmit and receive position data of the participating
+ quadrotors and send 
 \end_layout
 
 \begin_layout Subsection
@@ -1561,6 +1569,95 @@ Decision of Platform Selection
 
 \begin_layout Section
 Xbee Platform 
+\end_layout
+
+\begin_layout Standard
+The xbee platform used within this research was the Xbee Series 2 platform.
+ This platform is a low power, wireless transceiver that grants the user
+ flexiblity in data manipulation through the use of a microcontroller or
+ microprossceing uint.
+ 
+\end_layout
+
+\begin_layout Subsection
+RF Characteristics
+\end_layout
+
+\begin_layout Standard
+The RF characteristics of the Xbee Series 2 platform is depicted in 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Indoor Operating Range
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Outdoor Operating Range
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF Data Range 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1592,15 +1689,49 @@ Communication Platform Library
 \end_layout
 
 \begin_layout Subsubsection
-Software Architecture
+Capabilities and Functionality
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pasted1.png
+	scale 200
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+test-figure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
 Position Recognition and Coordination
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Section
@@ -1746,7 +1877,7 @@ setcounter{tocdepth}{0}}
 
 \begin_layout Chapter
 \start_of_appendix
-QUADRATIC FIT COMPARISON GRAPHS
+Software Constructed
 \end_layout
 
 \begin_layout Standard
