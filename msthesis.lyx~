@@ -1584,12 +1584,19 @@ RF Characteristics
 \end_layout
 
 \begin_layout Standard
-The RF characteristics of the Xbee Series 2 platform is depicted in 
+The RF performance characteristics of the Xbee Series 2 platform is depicted
+ in 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="2">
+<lyxtabular version="3" rows="4" columns="2">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1607,7 +1614,7 @@ Indoor Operating Range
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+up to 40 meters
 \end_layout
 
 \end_inset
@@ -1627,7 +1634,27 @@ Outdoor Operating Range
 \begin_inset Text
 
 \begin_layout Plain Layout
+up to 120 meters (line-of-sight)
+\end_layout
 
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RF Data Rate
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+250,000 bits per second 
 \end_layout
 
 \end_inset
@@ -1638,7 +1665,7 @@ Outdoor Operating Range
 \begin_inset Text
 
 \begin_layout Plain Layout
-RF Data Range 
+Reception Sensitivity 
 \end_layout
 
 \end_inset
@@ -1647,7 +1674,7 @@ RF Data Range
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+-96 dBm
 \end_layout
 
 \end_inset
@@ -1658,6 +1685,38 @@ RF Data Range
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+RF Performance Specifications for Xbee Series 2 platform.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Xbee Series 2 platform operates within the 2.4 GHz Industrial Scientific
+ Medical (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ISM"
+description "Industrial Scientific Medical"
+
+\end_inset
+
+) band.
+ This allows license free deployement and operation of the xbee platform.
+ 
 \end_layout
 
 \begin_layout Subsection
