@@ -1573,19 +1573,75 @@ Xbee Platform
 
 \begin_layout Standard
 The xbee platform used within this research was the Xbee Series 2 platform.
- This platform is a low power, wireless transceiver that grants the user
- flexiblity in data manipulation through the use of a microcontroller or
- microprossceing uint.
+ This platform is a low power, wireless transceiver that can be used for
+ mesh networking solutions.
+ The xbee platform follows a packet based transmission.
+ The xbee platform is interfacable through a Universal Aysnchronous Receiver/Tra
+nsmitter(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "UART"
+description "Universal Asynchronous Receiver/Transmitter"
+
+\end_inset
+
+) serial interface.
+ The UART serial interface is advantegous because it allows a UART equipped
+ microcontroller or processing unit to interface with the Xbee platform
+ with relative ease.
  
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/xbee_series_2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Xbee Series 2 Platform
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-RF Characteristics
+Xbee Series 2 Specifications 
 \end_layout
 
 \begin_layout Standard
 The RF performance characteristics of the Xbee Series 2 platform is depicted
- in 
+ in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:RF-Performance-Specifications"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1674,7 +1730,7 @@ Reception Sensitivity
 \begin_inset Text
 
 \begin_layout Plain Layout
--96 dBm
+-95 dBm
 \end_layout
 
 \end_inset
@@ -1692,6 +1748,13 @@ Reception Sensitivity
 
 \begin_layout Plain Layout
 RF Performance Specifications for Xbee Series 2 platform.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:RF-Performance-Specifications"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1716,15 +1779,119 @@ description "Industrial Scientific Medical"
 
 ) band.
  This allows license free deployement and operation of the xbee platform.
+ The antenna used within the Xbee platform is a integrated whip that is
+ etched onto the platform.
  
 \end_layout
 
+\begin_layout Standard
+The power specifications of the Xbee Series 2 platform is depicted in Table
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Supply Voltage
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.8 -3.4 Volts
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Operating Current(RF Transmission)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40mA(@ 3.3Volts)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Operating Current(Receive)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40mA(@ 3.3 Volts)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Power-down Current
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+<1 uA
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Characteristics of 802.15.4 Protocol
+Xbee Series 2 Platform Operation
+\end_layout
+
+\begin_layout Subsubsection
+Module Interfacing 
 \end_layout
 
 \begin_layout Chapter
-Vision system used in Swarm Implementation
+Vision system used in Swarm Implementation 
 \end_layout
 
 \begin_layout Section
