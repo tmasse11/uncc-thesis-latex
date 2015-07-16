@@ -3929,11 +3929,84 @@ Communication Platform Library
 \begin_layout Standard
 In order to interface with the Xbee Series 2 modules, a communication platform
  library was constructed.
- This 
+ This library was responsible for converting various data parameters used
+ within the swarm algorithm into the correct dataframes for transmission
+ and reception by the Xbee Series 2 modules.
+ The communication platform library also included functionality to observe
+ the status and firmware parameters of the Xbee modules.
+ The communication library had three main functions that were used.
+ These functions were
+\end_layout
+
+\begin_layout Itemize
+Send Transmit Request
+\end_layout
+
+\begin_layout Itemize
+Receive Packets 
+\end_layout
+
+\begin_layout Itemize
+ObtainXbeeNodeStatus
 \end_layout
 
 \begin_layout Subsubsection
-Capabilities and Functionality
+Send Transmit Request 
+\end_layout
+
+\begin_layout Standard
+The first major process in the communication platform library is the Transmissio
+n Routine.
+ This routine, depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Transmission-Algorithm-communication-library"
+
+\end_inset
+
+, accepted the movment parameters used within the swarm algorithm, and compiled
+ them into a formatted packet that was encapuslated by the existing ZigBee
+ API frame.
+ This process accepted the following arguments
+\end_layout
+
+\begin_layout Itemize
+raw_data_msg (possible data types: integer, string, or list of integers)
+\end_layout
+
+\begin_layout Itemize
+destination_address (possible data types: integer or bytearray of 2 bytes)
+\end_layout
+
+\begin_layout Itemize
+cmd_id (possible data types: integer or bytearray)
+\end_layout
+
+\begin_layout Itemize
+options (possible data types: byte)
+\end_layout
+
+\begin_layout Itemize
+verbose (possible data types: boolean) 
+\end_layout
+
+\begin_layout Itemize
+Cluster ID (possible data types: integer)
+\end_layout
+
+\begin_layout Standard
+The raw_data_msg argument could be a simple string used to send an acknowledgeme
+nt to a swarm node, or it may be a list of movement parameters.
+ The movement parameters used to characterize the nodes within the swarm
+ were height (cm), perpendicularity(cm),linear distance(cm), and angular
+ offset.
+ If the raw_data_msg was a list of movemnet parameters(used for a movement
+ command or position report), the list of movement parameters would be compiled
+ into a single byte array.
+ The destination address, command identification(cmd_id), and the options
+ field is used as part of the header of the constructed packet.
+ Verbose is a flag that logs the process for debugging purposes.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3944,20 +4017,129 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename pasted1.png
-	scale 200
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
 
 \end_inset
 
 
-\end_layout
+\begin_inset Graphics
+	filename figs/transmit_process_xbee_library_driver.png
+
+\end_inset
+
+
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-test-figure
+Transmission Algorithm Utilized in the Communication Platform Library
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Transmission-Algorithm-communication-library"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The assembled dataframe at the conclusion of the packet assembly is depicted
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:General-Dataframe-Structure"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/general_dataframe_for_swarm.png
+	scale 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+General Dataframe Structure used in Data Transmission between Swarm Nodes
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:General-Dataframe-Structure"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3974,12 +4156,445 @@ test-figure
 
 \end_layout
 
-\begin_layout Section
-Position Recognition and Coordination
+\begin_layout Standard
+Whether the communication library is constructing a simple acknowledgement
+ packet, a movement command packet with movement parameters, or a position
+ report packet with movement parameters, the header format will be the same
+ during transmission.
+ The Start Delimiter, Length, API Identifier and Destination Address fields
+ are used by the ZigBee protocol.
+ The Command ID, and Cluster ID fields are custom header fields that are
+ used by the swarm algorithm.
+ From the perspective of the Xbee module, the custom header fields are a
+ part of the data payload.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Receiving Packets
+\end_layout
+
+\begin_layout Standard
+The responsibility of this function is to validate the integrity of all
+ received data packets and extract the swarm specific data packet successfully.Th
+e process was engineered to receive and process multiple packets at a time.
+ The only argument that this process accepts is a verbose flag.
+ When this flag is set to 1, the process will log all events for debugging
+ purposes.
+ At the conclusion of the process, a list of packets are returned if multiple
+ packets were received at the node.
+ Otherwise,a single bytearray that represents the packet is returned.
+ The function follows this process to successfully extract the data from
+ the received packets.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Detect if any packets have been received.
+ This is done by checking the UART receive buffer within the Raspberry Pi
+ (Swarm Controller).
+ If the buffer is populated, RF data has been received by the Xbee module.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Parse the contents of the UART receive buffer into the respective data packets.
+ If there are multiple packets within the buffer(the module has received
+ multiple packets at the same time), the data is seperated through the detection
+ of the start delimiter of each packet.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The resulting packets are then validated for integrity.
+ This validation includes checking for the correct length of the packets
+ through matching the value in the length field of the packet with the calculate
+d length of the packet, and validating the checksum of the packet.
+\end_layout
+
+\begin_layout Enumerate
+The validated packets are then stripped of the ZigBee header (except for
+ the node id).
+ The resulting packets contain the node ID, command ID, cluster ID, and
+ payload.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The resulting packets now contain the format needed to be passed to the
+ swarm algorithm for further processing.
+ A depiction of the packet format of such a packet is in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:General-Dataframe-Structure-ofreceiveddataframe"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/general_received_dataframe_for_swarm.png
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+General Dataframe Structure of a Swarm Specific Received Dataframe 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:General-Dataframe-Structure-ofreceiveddataframe"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Obtaining Node Status 
+\end_layout
+
+\begin_layout Standard
+This function reports various parameters of the Xbee module such as the
+ current 16-bit Network Address and PAN ID .
+ The function accomplishes this through enabling Command Mode of the Xbee
+ module, and sending a formatted AT command in a format similar to the one
+ discussed in 6.1.0.6.
 \end_layout
 
 \begin_layout Section
 Fine -Grained Position Coordination and Maintenance 
+\end_layout
+
+\begin_layout Standard
+The objective of the Fine-Grained Position Coordination Scheme is to maintain
+ the geometric integrity of the swarm cluster.
+ This is achieved through a leading node ensuring that the followers are
+ within a certain geometric boundary.
+ This boundary was setup for a cross geometry with the leader node at the
+ center similar to the geometry in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Swarm-Topology-for-single-cluster-in-research"
+
+\end_inset
+
+.
+ The center quadrotor is the leading quadrotor, and the following quadrotors
+ calculate their position relative to the beacon on the leader.
+ Notice however, that each node contains a camera and a set of beacons.
+ This gives the nodes the ability to have more nodes join the swarm.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/Single Cluster in Cross Topology.png
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Swarm Topology for a Single Cluster used in Research
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Swarm-Topology-for-single-cluster-in-research"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To maintain the desired geometric layout of the swarm, the followers must
+ be in a certain position in respect to the the leader node.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Degrees-of-Motion"
+
+\end_inset
+
+ shows that the degrees of motion are perpendicularity, distance, and angular
+ displacement.
+ There is also a fourth degree of motion which is altitude.
+ All of these degrees of motion have to be monitored and maintatined if
+ the swarm is to maintain its geometric integrity.
+ The ideal motion parameters for a follower node within a swarm were as
+ follows 
+\end_layout
+
+\begin_layout Itemize
+Distance : 66.04 cm from leader node
+\end_layout
+
+\begin_layout Itemize
+Height Offset: 0 cm 
+\end_layout
+
+\begin_layout Itemize
+Perpendicularity Offset: 0 cm
+\end_layout
+
+\begin_layout Itemize
+Angular Displacement Offset: 0 cm
+\end_layout
+
+\begin_layout Standard
+These parameters are for the ideal situation.
+ However, in a real environment, the quadrotor experiences drift due to
+ atomospheric conditions.
+ Therefore these ideal parameters cannot be maintained.
+ Instead, a set of boundaries, or tolerances are used.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/Freedoms of Motion.png
+	scale 90
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Degrees of Motion in the Quadrotor Swarm
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Degrees-of-Motion"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Due to the vision system having a maximum viewing angle of 53 degrees, a
+ boundary must be set for the Perpendicularity degree of motion.
+\end_layout
+
+\begin_layout Standard
+Since the center of the leader quadrotor is perpendicular to the center
+ of the follower quadrotor in the ideal case, trigonometry can be used to
+ establish the boundaries.
+ If the vision system has a viewing angle of 53 degrees, that means that
+ there can be a 26.5 degree viewing offset from the center of the leader
+ node.
+ Also since 66.04 cm is the desired distance between the leader node and
+ the follower node, a right triangle can be drawn , with the shortest leg
+ being the amount of perpendicular offset at that distance.
+ The perpendicular offset can be calculated as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Offset_{perpendicular}=tan^{-1}(26.5^{o}*66.04cm)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At the distance of 66.04 cm , the follower quadrotor has a perpendicularity
+ degree of motion tolerance of 32.9184 cm in either direction.
+ If two follower nodes reach the maximum perpendicularity tolerance, there
+ is a possibility of them crashing.
+ This is prevented by making sure that the boundaries are setup in such
+ a way that there is a voided area between neighboring follower nodes, even
+ when they are at their maximum perpendicularity offset.
+ Starting with the ideal distance of 66.04cm, and the 53 degrees of viewing
+ angle of the vision system, the amount of space in the perpendicularity
+ degree of freedom between two boundaries can be determined.
+ Using the 26.5 degree offset of the boundary like before, it was determined
+ that there is a 37 degree angle between the two boundaries.
+ With this information, and the the ideal distance of 66.04cm, the law of
+ cosines can be used to determine the amount of perpendicualrity distance
+ in the void that was present.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Distance_{Perpendicularity}=(64.04cm)^{2}*(64.04cm)^{2}-2(64.04)(64.04)*cos(37^{o})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This distance in the perpendicularity freedom of motion was calculated to
+ be 40.64 cm.
+ Therefore if the follower nodes are at the ideal distance away from the
+ coordinator, they will not crash into each other if they drift into their
+ perpendicularity offset boundary.
+ However, since this distance cannot be ideal, a tolerance for the distance
+ freedom of motion must be established.
+ It was determined that having a tolerance of 15.24cm for the distance freedom
+ of motion, would allow for a suffucient distance between the perpendicularity
+ boundaries.
+ 
+\end_layout
+
+\begin_layout Standard
+The height of the follower nodes were held at a tolerance of 10.16 cm.
+ The tolerance for the angular displacement was established by the capabilities
+ of the vision system.
+ This was determine to have a tolerance of approximately 10 degrees.
+ 
 \end_layout
 
 \begin_layout Section
@@ -4000,10 +4615,6 @@ Movement Interface with Flight Controller
 
 \begin_layout Section
 Overall Software Architecture
-\end_layout
-
-\begin_layout Chapter
-Testing and Results
 \end_layout
 
 \begin_layout Chapter
@@ -4124,43 +4735,8 @@ setcounter{tocdepth}{0}}
 Software Constructed
 \end_layout
 
-\begin_layout Standard
-The appendices should be used for whatever material you or your advisory
- committee believes should be included, but would not be appropriate in
- the text of the thesis or dissertation.
- Such materials can include:
-\end_layout
-
-\begin_layout Enumerate
-the original data obtained in the thesis or dissertation research, including
- computer programs and printouts, surveys, or correspondence;
-\end_layout
-
-\begin_layout Enumerate
-detailed descriptions of procedures, which go beyond the general outline
- of methods and approaches presented in the text;
-\end_layout
-
-\begin_layout Enumerate
-a particularly extensive review of the literature and other information
- that may be useful to future scholars who may wish to delve more deeply
- into the research topic
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Enumerate
-.
-\end_layout
-
 \begin_layout Section
-Section in appendix
-\end_layout
-
-\begin_layout Standard
-This will be source code used within research.
+Source Code
 \end_layout
 
 \begin_layout Vita
