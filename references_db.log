@@ -1,0 +1,38 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdftex 2015.5.27)  16 JUL 2015 09:49
+entering extended mode
+**C:/Users/Terrill*Massey/Documents/GitHub/uncc-thesis-latex/references_db.bib
+("C:/Users/Terrill Massey/Documents/GitHub/uncc-thesis-latex/references_db.bib"
+
+Overfull \hbox (1.10716pt too wide) in paragraph at lines 52--69
+[]\tenrm @articleWaite:2014:JFR:2602518.2590600, au-thor = Waite, Matt, ti-tle 
+= Jour-nal-ism with Fly-ing Robots,|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm a
+.\tenrm r
+.\tenrm t
+.etc.
+
+
+Overfull \hbox (2.42656pt too wide) in paragraph at lines 86--93
+[]\tenrm @INPROCEEDINGSKilobot, au-thor=Rubenstein, M. and Ahler, C. and Nag-pa
+l, R., book-ti-tle=Robotics|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm I
+.\tenrm N
+.\tenrm P
+.etc.
+
+[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
+*
+! Emergency stop.
+<*> .../GitHub/uncc-thesis-latex/references_db.bib
+                                                  
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

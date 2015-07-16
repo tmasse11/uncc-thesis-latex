@@ -315,22 +315,22 @@ The research presented in this thesis aims to add more deployment and operation
 on algorithm in a wireless environment and a pre-exisiting on-board vision
  system.
  The constructed DE-centralized coordination algorithm provides a method
- to track the position of all participating quadrotors, maintains the geometric
- integrity of the swarm through coordinating specific movement commands
- to the followers, establishes a method to uniformly move the swarm to a
- desired position, and provides situational awareness to the swarm through
- collision detection.
+ to track the position of all participating quadrotors, provids a communication
+ method to maintain the geometric integrity of the swarm through coordinating
+ specific movement commands to the followers, establishes a communication
+ algorithmto uniformly move the swarm to a desired position, and provides
+ situational awareness to the swarm through collision detection.
  
 \end_layout
 
 \begin_layout Acknowledgements
-I would like to acknowledge the National Aeronautical Space Administration
- for providing the North Carolina Space Grant funding for this research.
+I would foremost like to acknowledge my advisor Dr.
+ Conrad for providing the time, mentoring, and support throughout my research.
+ I would also like to acknowledge Christopher Wesley for his support and
+ work contributed for the basis of my research.
+ I would like to also acknowledge my family and friends for their emotional
+ support throughout the research.
  
-\end_layout
-
-\begin_layout Dedication
-To be constructed.
 \end_layout
 
 \begin_layout Standard
@@ -505,7 +505,109 @@ A quadrotor swarm is advantageous in situations where an explanatory effort
 \end_layout
 
 \begin_layout Section
-Research Objectives
+Research Objective
+\end_layout
+
+\begin_layout Standard
+The main objective of this research is to explore the best method of creating
+ a communication algorithm within an embedded system that will allow quadrotors
+ to dynamically establish and retain quadrotor swarm formations without
+ the use of an external processing node or unit.
+ The type of swarm topology used throughout this research was the cross
+ formation.
+ This is where the coordinating node, or the leader quadrotor is established
+ within the center of the swarm, and the following nodes are at realitvely
+ perpendicular positions in relation to the quadrotor as depicted in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Basic-Swarm-Attemptingcrossformation"
+
+\end_inset
+
+.
+ The Leading/Coordinating quadrotor in this research will be outfitted with
+ a set of beacons to each of its sides along with a camera that will have
+ visibility of a staionary beacon.
+ Each of the followers will be outfitted with a beacon on all sides and
+ a camera with initial line of sight visibility with the beacons located
+ on the coordinating quadroror as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Swarm-Topology-for-single-cluster-in-research"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/basic_swarm.png
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Basic Swarm Attempting to Maintain the Cross Formation
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Basic-Swarm-Attemptingcrossformation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -567,6 +669,31 @@ These contributions are advantageous in the sense that a DE-centralized
 
 \begin_layout Section
 Organization of Thesis
+\end_layout
+
+\begin_layout Standard
+This thesis will first provide an overview of the quadrotor platform with
+ a dicussion of a basic dyanamic model to represent its flight model and
+ provide an insight to the research that has recently been conducted within
+ the academic community.
+\end_layout
+
+\begin_layout Standard
+Chapter 3 , 4, and 5 will explore the characteristics of the quadrotor platform,
+ communication platform, and vision system used within the conducted research
+ respectively.
+ Chapter 6 then discusses the swarm algorithm design and implementation
+ within the research.
+ 
+\end_layout
+
+\begin_layout Standard
+Chapter 7 highlights the concerns and areas of improvement in the future
+ with the platforms, algorithms used within the research, and future works
+ that can be explored.
+ Chapter 8 gives a brief overview of the research completed and a prospective
+ outlook towards the future.
+ 
 \end_layout
 
 \begin_layout Chapter
@@ -1503,7 +1630,7 @@ name "fig:Micro-Quadrotor-Swarm GRASP "
 \end_layout
 
 \begin_layout Chapter
-Quadrotor Platform 
+quadrotor platform used
 \end_layout
 
 \begin_layout Section
@@ -1514,16 +1641,268 @@ Hardware Architecture of Quadrotor Platform
 Quadrotor Frame 
 \end_layout
 
+\begin_layout Standard
+The quadrotor frame used during this research was the ST360 model.
+ This model was packaged with 
+\end_layout
+
+\begin_layout Itemize
+4 x ST2210 Brushless Motors 
+\end_layout
+
+\begin_layout Itemize
+4 x 8045 Propellers 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Width
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+360mm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Height 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+90mm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+170g (without added electronics
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mechanical Specifications of the ST360 model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Quadrtoror Power Supply 
+\end_layout
+
+\begin_layout Standard
+The power supply used for the quadrotor platform was a 3-cell lithium-polymer
+ battery with a 2200mAh capacity and a nominal voltage of 11.1V.
+ 
 \end_layout
 
 \begin_layout Subsubsection
 Motors 
 \end_layout
 
+\begin_layout Standard
+The motor used is the ST2210 brushles motor.
+ This motor produces 600 grams of thrust at 1050 Rotations Per Minute(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RPM"
+description "Rotations Per Minute"
+
+\end_inset
+
+) per volt.
+ With the power supply chosen, the motor can produce a maximum of 115500
+ RPM.
+ Brushless Electronic Speed Controllers(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ESC"
+description "Electronic Speed Control"
+
+\end_inset
+
+) are used to modulate the speed of the brushless motors.
+ Pulse Width Modulation(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "PWM"
+description "Pulse Width Modulation"
+
+\end_inset
+
+) signals from a control board.
+ Note that brushless ESCs can only be used with these motors.
+ This is due to how the ESC powers the motor.
+ Unlike brushed ESCs, brushless ESCs drive the brushless motor with a sequence
+ of signals for rotation.
+ 
+\end_layout
+
 \begin_layout Subsubsection
 Quadrotor Flight Control Board 
+\end_layout
+
+\begin_layout Standard
+The flight controller board used is the All In One Pro (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "AIOP"
+description "All In One Pro"
+
+\end_inset
+
+)v2 board.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/AIOP V2.JPG
+	scale 50
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+All In One Pro v2 Flight Controller Board Diagram
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AIOP"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The AIOP v2 control board is a arduino based microcontroller that utilizes
+ a ATMega 2560-16AU Microcontroller.
+ It suppors 8-axis motor outputs, as well as support MPU6050 6 axis gyro
+ / accel with Motion Processing Unit , and MS5611-01BA03 high precision
+ altimeter for altitude, yaw, roll, and pitch calculations
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AIOP"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Section
@@ -1531,31 +1910,155 @@ Software Architecture of Quadrotor Platform
 \end_layout
 
 \begin_layout Subsubsection
-Flight Control User Interface 
+Flight Control Software
+\end_layout
+
+\begin_layout Standard
+The firmware used with the AIOP v2 flight control board is the MegaPirateNG
+ firmware.
+ This firmware provides the framework for the Closed Loop Feedback control
+ system used to fly the quadrotor.
+ The MegaPirateNG is arduino based, and the following procedure was used
+ to upload the firmware to the AIOP flight controller.
+ This procedure assumed that MegaPirateNG firmware has already been downloaded
+ from the supported site and are using a Windows machine.
+ 
+\end_layout
+
+\begin_layout Itemize
+Download the latest Arduino environment from the offical site.
+ 
+\end_layout
+
+\begin_layout Itemize
+The libraries of the MegaPirateNG firmware was then copied into the libraries
+ folder located under the Arudino folder in the C:/ drive.
+ 
+\end_layout
+
+\begin_layout Itemize
+With the AIOP v2 board connected to the Windows machine via Universal Serial
+ Bus(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "USB"
+description "Universal Serial Bus"
+
+\end_inset
+
+), the MegaPirateNG firmware was uploaded to the board through selecting
+ Arudino Mega 2560 under board in an open Arduino IDE, and running the Arducopte
+r.pde file located in the MegaPirateNG folder.
 \end_layout
 
 \begin_layout Subsubsection
-Flight Control Software 
+Flight Control User Interface
 \end_layout
 
-\begin_layout Section
-Quadrotor Platform Flight Capabilities 
+\begin_layout Standard
+The flight control user interface used in the research was MissionPlanner.The
+ flight control user interface gives the ability of tunning the quadrotor
+ platform for better flight performance, as well as provide a method to
+ choose a flight mode for the quadrotor platform.
+ The MegaPriateNG firmware operates on a Proportional Integral Derative
+ (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "PID"
+description "Proportional Integral Deravative "
+
+\end_inset
+
+) controller.
+ Tunning for quadrotor drift can be done through modifying the I value of
+ the controller.
+ Tunning for the responsiveness of the quadrotor can be done through modifying
+ the P value of the PID controller as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Modifying-PID-values"
+
+\end_inset
+
+.
+ The P and I values both depend on the characteristics of the quadrotor
+ that is being flown.
+ 
 \end_layout
 
-\begin_layout Subsection
-Flight Modes
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
 \end_layout
 
-\begin_layout Subsection
-Power Characteristics
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/PIDmoddingMP.png
+	scale 80
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
 \end_layout
 
-\begin_layout Subsection
-Tuning capabilities For Flight Precision and Accuracy 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modifying PID values within MissionPlanner Interface
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Modifying-PID-values"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
-Communication Platform 
+communication platform used
 \end_layout
 
 \begin_layout Section
@@ -3889,7 +4392,123 @@ name "fig:ZigBee-Receive-Packet-16bit-addressing"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Swarm Algorithm Design and Implementation
+\end_layout
+
+\begin_layout Section
+Swarm Topology
+\end_layout
+
+\begin_layout Standard
+In this research, there are two types of nodes that can participate in the
+ swarm.
+ The first type, the leader quadrotor or commonly refered to as the coordinating
+ quadrotor, is responsible for maintaing the geometric integrity of the
+ swarm as well as coordinating overall movement of the swarm.
+ The second type of node that can participate in the swarm is the follower.
+ The follower, is responsible for estimating its position in relation to
+ the leader, and reporting that position information to the leader.
+\end_layout
+
+\begin_layout Section
+Swarm Controller
+\end_layout
+
+\begin_layout Standard
+The swarm controller used in this research is the Raspberry Pi Model B+
+ as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Raspberry-Pi-Model"
+
+\end_inset
+
+.
+ The Raspberry Pi Model B+ utilizes the ARM1176 Processor and operates witha
+ debian based operating system.
+ The power consumption of the Raspberry Pi varies from 700 -1000mA
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+.
+ The USB protocol was used to connect the Xbee wireless transceiver platform
+ to the Raspberry Pi.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/rpi.png
+	scale 30
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Raspberry Pi Model B+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "raspberrypi"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "raspberrypi"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Raspberry-Pi-Model"
+
+\end_inset
+
 
 \end_layout
 
@@ -3898,32 +4517,13 @@ name "fig:ZigBee-Receive-Packet-16bit-addressing"
 
 \end_layout
 
-\begin_layout Chapter
-vision system used  
+\begin_layout Plain Layout
+
 \end_layout
 
-\begin_layout Section
-Hardware Used 
-\end_layout
+\end_inset
 
-\begin_layout Standard
-The hardware used
-\end_layout
 
-\begin_layout Section
-Software Environment
-\end_layout
-
-\begin_layout Section
-Implementation
-\end_layout
-
-\begin_layout Chapter
-Swarm Algorithm Design and Implementation
-\end_layout
-
-\begin_layout Section
-Basics of the Swarm
 \end_layout
 
 \begin_layout Section
@@ -4091,7 +4691,7 @@ reference "fig:General-Dataframe-Structure"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -4239,7 +4839,7 @@ reference "fig:General-Dataframe-Structure-ofreceiveddataframe"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -4339,7 +4939,7 @@ reference "fig:Swarm-Topology-for-single-cluster-in-research"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -4450,7 +5050,7 @@ These parameters are for the ideal situation.
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -4892,11 +5492,88 @@ The early detection system is a communication protocol that is in use in
 \end_layout
 
 \begin_layout Chapter
-Future Work and Concerns
+Conclusion
 \end_layout
 
-\begin_layout Chapter
-Conclusion
+\begin_layout Standard
+This thesis outlined a framework that can establish a DE-centralized swarm
+ algorithm through establishing the swarm coordination process on the swarm
+ itself, which is referred to as a DE-centralized quadrotor swarm.
+ This De-centralized swarm algorithm successfully utilized a on-board vision
+ system in a way to provide position data of all participating nodes and
+ use the obtained position data to provide movement coordiantion throughout
+ the swarm.
+ This was achieved through maintating the geometric integrity of the swarm
+ through Fine-Grain Coordiantion, and providing the framework for swarm
+ movement through Coarse-Grain Coordination.
+\end_layout
+
+\begin_layout Section
+Performance Limitations
+\end_layout
+
+\begin_layout Standard
+The more prevalent performance limitations within the swarm system can be
+ seen as the number of participants increase in the overall swarm.
+ The efficacy of the swarm algorithm depends on how quickly it can process
+ accurate position data and propagate that information for movement coordiantion.
+ As the participants in the swarm increase, the latency required to provide
+ movement coordination increases, because more nodes must be attended to
+ before movement can actually start.
+ In really large networks, the latency within the swarm will propagate in
+ such a way that certain clusters of the swarm will be slower to respond
+ to movement stimuli than other clusters.
+ This is can become a major concern in really large networks, and should
+ be explored in the future.
+ 
+\end_layout
+
+\begin_layout Standard
+As the participants within the swarm increase, the measurement error within
+ position data reporting increase and propagate throughout the swarm more
+ easily.
+ For very large swarms, measurement error will be highest in remote regions
+ of the swarm, and will be observed through erroneous swarm following and
+ degredation of the geometry of the swarm.
+ This phenomenon is attributed to the vision system utilized within the
+ swarm process since it is a measurement device, and always has a accompanied
+ measurement error with every measuremnt.
+ 
+\end_layout
+
+\begin_layout Section
+Future Work
+\end_layout
+
+\begin_layout Subsection
+Self Healing Swarm Topologies
+\end_layout
+
+\begin_layout Standard
+Self healing swarm topologies are topologies that dynamically change during
+ operation in order to compensate for a group of node failures.
+ This is attractive for situations in where the environment is harsh, and
+ the likelyhood of destroyed nodes maybe moderately high.
+ This is a interesting topic in the sense, that even more situational awareness
+ will be needed between the followers of the swarm.
+ More situational awarness will be needed between the followers in the swarm,
+ so that a picture of the swarm topology would be known by the participants
+ and the appropiate movement cooridnation can take place to modify it while
+ maintaining its overall general geometry.
+ 
+\end_layout
+
+\begin_layout Subsection
+Self Forming Swarm Topologies
+\end_layout
+
+\begin_layout Standard
+Like self healing swarm topologies, more sophistication may be needed within
+ the swarm in such a way that a coordination process may be able to provide
+ complex movement commands to participants of the swarm simutaneously so
+ that a new topology can be shaped.
+ A more advanced algorithm may be needed to achieve this.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5010,11 +5687,12 @@ Software Constructed
 \end_layout
 
 \begin_layout Section
-Source Code
+Source Code Used in Research 
 \end_layout
 
-\begin_layout Vita
-Will be included.
+\begin_layout Standard
+The respository of the software used is located at https://github.com/UNCC-Autono
+mous-Quadrotor-Team/QR and is open source.
 \end_layout
 
 \end_body
