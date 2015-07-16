@@ -2664,7 +2664,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/ZigBee_802-15-4-OSI.png
-	scale 75
+	scale 70
 
 \end_inset
 
@@ -2818,7 +2818,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/802.15.4-DSSS.png
-	scale 70
+	scale 60
 
 \end_inset
 
@@ -3853,7 +3853,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/Tx16 Receive-message.png
-	scale 90
+	scale 82
 
 \end_inset
 
@@ -3899,7 +3899,7 @@ name "fig:ZigBee-Receive-Packet-16bit-addressing"
 \end_layout
 
 \begin_layout Chapter
-Vision system used in Swarm Implementation 
+vision system used  
 \end_layout
 
 \begin_layout Section
@@ -3924,6 +3924,12 @@ Swarm Algorithm Design and Implementation
 
 \begin_layout Section
 Communication Platform Library 
+\end_layout
+
+\begin_layout Standard
+In order to interface with the Xbee Series 2 modules, a communication platform
+ library was constructed.
+ This 
 \end_layout
 
 \begin_layout Subsubsection

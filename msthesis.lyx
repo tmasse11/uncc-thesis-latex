@@ -3899,7 +3899,7 @@ name "fig:ZigBee-Receive-Packet-16bit-addressing"
 \end_layout
 
 \begin_layout Chapter
-Vision system used in Swarm Implementation 
+vision system used  
 \end_layout
 
 \begin_layout Section
@@ -3924,6 +3924,12 @@ Swarm Algorithm Design and Implementation
 
 \begin_layout Section
 Communication Platform Library 
+\end_layout
+
+\begin_layout Standard
+In order to interface with the Xbee Series 2 modules, a communication platform
+ library was constructed.
+ This 
 \end_layout
 
 \begin_layout Subsubsection
@@ -4118,43 +4124,8 @@ setcounter{tocdepth}{0}}
 Software Constructed
 \end_layout
 
-\begin_layout Standard
-The appendices should be used for whatever material you or your advisory
- committee believes should be included, but would not be appropriate in
- the text of the thesis or dissertation.
- Such materials can include:
-\end_layout
-
-\begin_layout Enumerate
-the original data obtained in the thesis or dissertation research, including
- computer programs and printouts, surveys, or correspondence;
-\end_layout
-
-\begin_layout Enumerate
-detailed descriptions of procedures, which go beyond the general outline
- of methods and approaches presented in the text;
-\end_layout
-
-\begin_layout Enumerate
-a particularly extensive review of the literature and other information
- that may be useful to future scholars who may wish to delve more deeply
- into the research topic
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Enumerate
-.
-\end_layout
-
 \begin_layout Section
-Section in appendix
-\end_layout
-
-\begin_layout Standard
-This will be source code used within research.
+Source Code
 \end_layout
 
 \begin_layout Vita
