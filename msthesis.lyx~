@@ -4108,7 +4108,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/general_dataframe_for_swarm.png
-	scale 90
+	scale 85
 
 \end_inset
 
@@ -4309,7 +4309,7 @@ This function reports various parameters of the Xbee module such as the
 \end_layout
 
 \begin_layout Section
-Fine -Grained Position Coordination and Maintenance 
+Fine -Grained Position Coordination
 \end_layout
 
 \begin_layout Standard
@@ -4593,28 +4593,298 @@ This distance in the perpendicularity freedom of motion was calculated to
 The height of the follower nodes were held at a tolerance of 10.16 cm.
  The tolerance for the angular displacement was established by the capabilities
  of the vision system.
- This was determine to have a tolerance of approximately 10 degrees.
+ This was determine to have a tolerance of approximately 10 degrees of offset
+ in either direction.
  
 \end_layout
 
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Boundary-Concept-Utilized"
+
+\end_inset
+
+ represents a visual representation of the boundaries used on the follower
+ nodes, and how there is a void area between each boundary area.
+ The leader node maintains a database of every follower node within its
+ cluster in memory.
+ This database keeps the position of the respective follower node in respect
+ to the leader node.
+ Using the information of the last position reported by a certain follower,
+ along with a new position report of the follower node, the leader node
+ is able to make a decision on whether the follower node will exceed its
+ boundary area.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/boundary_in_fine_grained_showcase.png
+	scale 90
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Boundary Concept Utilized in Fine-Grained-Coordination
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Boundary-Concept-Utilized"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The communication algorithm that the leader node employs during the Fine-Grained
+ swarm coordination is in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Central-Routing-Algorithm"
+
+\end_inset
+
+.
+ The Central Routing Algorithm(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CRA"
+description "Central Routing Algorithm"
+
+\end_inset
+
+) ensures that all participating quadrotors within the swarm cluster are
+ accounted for, and received the appropriate movement commands in a timely
+ manner.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/central routing algorithm_fine_grained.png
+	scale 89
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Central Routing Algorithm (CRA)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Central-Routing-Algorithm"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-Coarse-Grain Position Maintenance and Movement Vector Construction 
+Coarse-Grain Position and Movement Vector Construction 
+\end_layout
+
+\begin_layout Standard
+Where the Fine-Grain Position Coordination establishes the geometric integrity
+ of the swarm, the Coarse-Grain Position Coordination establishes a communicatio
+n framework that allows the swarm to move towards a certain location.
+ Coarse-Grain Position Cooridnation is where the leader node receives a
+ objective to move to (ex.
+ following a main beacon), and relays this data to the corresponding swarm
+ cluster.
+ Due to the nature of the cross swarm topology, the leader node simply forwards
+ the movement parameters that it needs to take to each to reach the objective
+ to each of the participating followers within the cluster in the form of
+ movement commands in a similar fashion of the CRA protocol.
+ However, once the leader node receives all acknowledgements in the cluster,
+ it will broadcast to the cluster that it has started to move.
+ If the swarm must travel to a objective at an offset angle from it current
+ location, the leader node will interpet in a format of Perpendicularity
+ movement commands and distance movement commands.
+ The swarm nodes will move in the Angular offset direction, then the Height
+ direction, then the Perpendicularity direction then the Distance movement
+ direction.
 \end_layout
 
 \begin_layout Section
 Swarm Maintenance 
 \end_layout
 
+\begin_layout Standard
+During the lifetime of the swarm, participating quadrotors may join or leave.
+ Quadrotors may leave the swarm due to interference in the communication
+ link, loss of battery power, or due to pheonomenon in the atmosphere.
+ The leader node determines that a participating quadrotor within the cluster
+ has left when any of these scenarios occur.
+ 
+\end_layout
+
+\begin_layout Itemize
+The follower quadrotor fails to respond with a position data report to the
+ leader node for more than two re transmissions.
+\end_layout
+
+\begin_layout Itemize
+The follower quadrotor fails to ACK the leader quadrotor after 3 re transmission
+s.
+\end_layout
+
+\begin_layout Itemize
+The follower quadrotor responds with 
+\begin_inset Quotes eld
+\end_inset
+
+0
+\begin_inset Quotes erd
+\end_inset
+
+ on all movment parameters(indicates it has lost line of sight of the leader
+ quadrotor within the cluster) on a data report to the leader quadrotor
+ for more than two communication slots(handshake periods).
+ 
+\end_layout
+
+\begin_layout Standard
+The swarm algorithm gives the option to allow a quadrotor to join the swarm.
+ If a quadrotor wishes to join a swarm, and is in the Line of Sight (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "LOS"
+description "Line Of Sight"
+
+\end_inset
+
+) of one of the participating follower quadrotors' vision system within
+ the existing swarm cluster.
+ The joining quadrotor issues a join request to the follower quadrotor.
+ Once the follower quadrotor accepts, it will listen to two clusters.
+ The cluster that it is following, and the new cluster that has formed as
+ the new quadrotor joined the swarm.
+ The follower will listen to movement commands received by the leader node,
+ as well as provide Fine-Grain Movement Coordination for the newly joined
+ quadrotor under the new cluster.
+ This functionality is limited as the new-comming quadrotor needs to know
+ the network ID of the follower that it is joining before hand as well as
+ be in the LOS of its vision system.
+\end_layout
+
 \begin_layout Section
 Obstacle Early Detection System
 \end_layout
 
-\begin_layout Section
-Movement Interface with Flight Controller 
-\end_layout
-
-\begin_layout Section
-Overall Software Architecture
+\begin_layout Standard
+The early detection system is a communication protocol that is in use in
+ order to aid against the collision into objects for the quadrotors.
+ Currently, this algorithm is only effective with the cross swarm topology.
+ Each of the participating follower quadrotors are outfitted with ultra
+ sonic ping sensors facing the direction opposing the leader quadrotor.
+ Every 20ms, the quadrotor samples the ping sensor to determine if the sampled
+ range has fallen below a threshold.
+ If the range has fallen below the threshold, the quadrotor sends a data
+ packet with the command ID 0x02 to the leader node of the cluster.
+ The leader node then broadcasts the data packet with the Obstacle detection
+ command ID to the rest of the cluster.
+ This command ID has priority over all other command types in order to provide
+ a timely alert.
+ 
 \end_layout
 
 \begin_layout Chapter
