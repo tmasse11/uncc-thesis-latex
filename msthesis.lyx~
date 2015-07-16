@@ -1667,19 +1667,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{adjustbox}{center}
-\end_layout
-
-\end_inset
-
-
 \begin_inset Tabular
 <lyxtabular version="3" rows="6" columns="2">
 <features rotate="0" tabularvalignment="middle">
@@ -1810,19 +1797,6 @@ Frequency Channels
 \end_inset
 
 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustbox}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -1892,19 +1866,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{adjustbox}{center}
-\end_layout
-
-\end_inset
-
-
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
 <features rotate="0" tabularvalignment="middle">
@@ -1995,19 +1956,6 @@ Power-down Current
 \end_inset
 
  
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustbox}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -2066,19 +2014,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{adjustbox}{center}
-\end_layout
-
-\end_inset
-
-
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="4">
 <features rotate="0" tabularvalignment="middle">
@@ -2281,19 +2216,6 @@ Ground for entire Xbee Platform
 \end_inset
 
 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustbox}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Plain Layout
@@ -2357,6 +2279,7 @@ reference "fig:Signal-Waveform-of-UART-datapacket"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -2437,6 +2360,7 @@ reference "fig:Transmit-and-Receive-UART-dataflow"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -2707,11 +2631,19 @@ description "Institute of Electrical and Electronics Engineers\\\\"
 
 \end_inset
 
-) 802.15.4 as depicited in Figure 
+) 802.15.4 protocol as depicited in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ZigBee802.15.4-OSI-Model"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -2732,6 +2664,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/ZigBee_802-15-4-OSI.png
+	scale 75
 
 \end_inset
 
@@ -2756,6 +2689,13 @@ end{adjustbox}
 
 \begin_layout Plain Layout
 ZigBee/802.15.4 OSI Model
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ZigBee802.15.4-OSI-Model"
+
+\end_inset
+
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ZIGBEENETWORKS"
@@ -2773,6 +2713,230 @@ key "ZIGBEENETWORKS"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+As shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ZigBee802.15.4-OSI-Model"
+
+\end_inset
+
+, the IEEE 802.15.4 protocol is responsible for the physical, Media Access
+ Control(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "MAC"
+description "Medium Acess Control\\\\"
+
+\end_inset
+
+), and the Logical Link Control (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "LLC"
+description "Logical Link Control"
+
+\end_inset
+
+) of the Xbee platform, whereas the ZigBee protocol is responsible for the
+ higher levels of the communication stack such as the networking layer,
+ transport layer, and application layer.
+ 
+\end_layout
+
+\begin_layout Standard
+The physical layer as defined by 802.15.4 supports the frequency range of
+ 2.40 GHz to 2.42 GHz.
+ This band is divided into 16 different channels, in which a PAN can occupy.
+ The supported bit rate of 802.15.4 is 250 Kb/s 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ZIGBEENETWORKS"
+
+\end_inset
+
+.
+ The modulation scheme used within this particular Xbee model (Xbee Series
+ 2) is Direct Sequence Spread Spectrum (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "DSSS"
+description "Direct Sequence Spread Spectrum"
+
+\end_inset
+
+), Quadrature Phase Shift Keying(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "QPSK"
+description "Quadrature Phase Shift Keying"
+
+\end_inset
+
+)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ZIGBEENETWORKS"
+
+\end_inset
+
+.
+ DSSS allows the transmitted information to occupy a larger bandwidth with
+ a lower spectral density for each signal when compared to a non DSSS signal
+ as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DSSS-Scheme-used-in-802154"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/802.15.4-DSSS.png
+	scale 70
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DSSS Scheme used in 802.15.4 PHY 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DSSS-Scheme-used-in-802154"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ZIGBEENETWORKS"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The DSSS scheme is advantegous in the sense that it reduces the interference
+ between frequency channels within the frequency band.
+ The 802.15.4 MAC utilizes the Carrier Sense Multiple Acess-Collision Avoidance
+ (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CSMA-CA"
+description "Carrier Sense Multiple Access - Collision Avoidance"
+
+\end_inset
+
+).
+ In CSMA-CA all participating nodes listen to the medium prior to transmit.
+ If a node detects a spectral energy on the medium that is higher than a
+ certain threshold, the node will declare the medium is in use.
+ When the node detects that the medium is in use, it waits for a random
+ period of time, known as random-backoff.
+ After this period is up, the node will listen to the channel again in order
+ to determine if the medium is not busy.
+ If the medium is not busy, the node will transmit.
+ If the node determines if the medium is still busy, it will increase the
+ window for the random backoff period, and retry transmission.
+ This process will be repeated, with increasing the random backoff period
+ to a maximum pre-determined value, until the medium is determined as not
+ busy.
+ Combined with 802.11 LLC, the 802.15.4 supports star topology networks and
+ peer-to-peer networks
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ZIGBEENETWORKS"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The ZigBee protocol is an upper layer addition to 802.15.4 that essentially
+ adds these contributions:
+\end_layout
+
+\begin_layout Itemize
+Extra Security/Encryption Services (within the Transport Layer).
+\end_layout
+
+\begin_layout Itemize
+Association and Authentication within the network layer( only valid nodes
+ with correct PAN IDs can join the network).
+\end_layout
+
+\begin_layout Itemize
+A reactive ad-hoc protocol (Ad-Hoc On Demand Routing 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Perkins:2003:AHO:RFC3561"
+
+\end_inset
+
+) for data forwarding and routing.
+\end_layout
+
+\begin_layout Itemize
+Unique Application Services such as clusters which are groups of nodes that
+ are responsible for certain functions (i.e.
+ light automation in a smart-home network).
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -2877,8 +3041,141 @@ The process of a End Device joining a PAN is identical to the process of
  a Router device joining a PAN.
 \end_layout
 
+\begin_layout Subsubsection
+Network Addressing 
+\end_layout
+
+\begin_layout Standard
+Two address types are utilized within a ZigBee network.
+ These address types are 16-bit network addresses, and 64-bit addresses.
+ 
+\end_layout
+
+\begin_layout Standard
+A 16-bit network address is assigned to a Xbee node when it joins a PAN.
+ Each Xbee node within the PAN contains a unique 16-bit network address.
+ The 16-bit network address of a node can change over time.
+ The address can change if the Xbee node leaves the PAN, then rejoins, or
+ if the device type of the Xbee node changes (ie.
+ from Router device to End device)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+.
+ As disscused in the beginning of this section, the Coordinator of the PAN
+ will always have a 16-bit network address of 0.
+ The other address type is 64-bit addressing.
+ Every Xbee module has a unqiue 64-bit address.
+ This address is permanant for the Xbee module.
+ 
+\end_layout
+
 \begin_layout Subsection
 Xbee Series 2 Module Operation Modes
+\end_layout
+
+\begin_layout Subsubsection
+AT Command Mode Operation
+\end_layout
+
+\begin_layout Standard
+The command mode grants the ability to modify parameters within the firmware
+ of the Xbee Series 2 module.
+ To enter the command mode on the Xbee platform, send the characters 
+\begin_inset Quotes eld
+\end_inset
+
++++
+\begin_inset Quotes erd
+\end_inset
+
+ to the DIN UART line.
+ Upon successful reception, the Xbee module will respond with 
+\begin_inset Quotes eld
+\end_inset
+
+OK
+\begin_inset Quotes erd
+\end_inset
+
+ on the DOUT UART line.
+ Once this is received, parameters can be modified within the Xbee firmware.
+ The format for changing a parameter consists of having the characters 
+\begin_inset Quotes eld
+\end_inset
+
+AT
+\begin_inset Quotes erd
+\end_inset
+
+ and the characters of the parameter name assigned to a value.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:AT-Command-Format"
+
+\end_inset
+
+ shows an example of setting the Destination Low address of the Xbee module
+ to 2F.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+AT<ASCII Command><Carriage Return>
+\end_layout
+
+\begin_layout Plain Layout
+
+ex.
+ ATDL2F<CR>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+AT Command Format 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:AT-Command-Format"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ If no command is sent through the UART interface within 3 seconds, the
+ Xbee module will automatically exit out of AT Command Mode.
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -2909,12 +3206,13 @@ reference "fig:An-example-of transparent operation"
 \end_inset
 
  shows what data needs to be present on the DIN line of the transmitting
- Xbee module and what data that will be seen on DOUT line of the receiving
+ Xbee module and what data that will be seen on the DOUT line of the receiving
  Xbee module at the conclusion of the transmission.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -2935,7 +3233,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/transparent_mode_xbee_example.png
-	scale 66
+	scale 60
 
 \end_inset
 
@@ -3018,8 +3316,7 @@ status open
 
 \begin_layout Plain Layout
 
-####################################Transmission Process in Python Scripting####
-##################################################
+##########Transmission Process in Python Scripting###########
 \end_layout
 
 \begin_layout Plain Layout
@@ -3057,8 +3354,7 @@ self.ser_conn.write('A') # Transmit the character 'A' to the Xbee Module for
 
 \begin_layout Plain Layout
 
-########################### Reception Process in Python Scripting###############
-###################################################
+########## Reception Process in Python Scripting##########
 \end_layout
 
 \begin_layout Plain Layout
@@ -3222,15 +3518,384 @@ ATAP=1
 \end_inset
 
  while in Command mode.
- Operation details of this mode is located in 
-\begin_inset Quotes eld
+ 
+\end_layout
+
+\begin_layout Standard
+When in API mode, data is encapuslated within a UART dataframe structure
+ as depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Generic-UART-Dataframe"
+
 \end_inset
 
-API Operation
-\begin_inset Quotes erd
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
 \end_inset
 
- section of this thesis.
+
+\begin_inset Graphics
+	filename figs/UART Data Frame Structure.png
+	scale 90
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Generic UART Data Frame Structure 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Generic-UART-Dataframe"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The start demiliter of the UART data frame denotes the start of the frame.
+ The start delimiter value will be 0x7E regardless of the type of API dataframe.
+ The second field of the UART data frame is the Length field.
+ The Length field specifies the number of bytes after the LSB, excluding
+ the Checksum field.
+ This is essentially the length of the Frame Data field.
+ The Frame Data field is specific to the type of the API data frame used
+ and contains the payload of the data frame as well.
+ Depending on the type of API data frame, the size of the Frame Data field
+ can vary.
+ The Checksum Field is used to validate the integrity of the overall Data
+ Frame and detect in errors within the transmission.
+ The Checksum is calculated by the following procedure
+\end_layout
+
+\begin_layout Enumerate
+Calculate the sum of all the bytes after the Least Signifcant Bit (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "LSB"
+description "Least Significant Bit"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Mask the resulting sum with 0xFF.
+\end_layout
+
+\begin_layout Enumerate
+Subtract the resulting Value from 255.
+\end_layout
+
+\begin_layout Standard
+There are various API types supported by the Xbee Series 2 platform and
+ ZigBee that can be found in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+.
+ The two API types used in this research however is the Zigbee Transmit
+ Request (16-bit network addressing) and ZigBee Receive Packet.
+ 
+\end_layout
+
+\begin_layout Standard
+The ZigBee Transmit Request has a data frame structure similar to the one
+ depicted in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Generic-UART-Dataframe"
+
+\end_inset
+
+, however, the Frame Data Field is comprised of header information that
+ specifies the API type, destination address and payload of the data frame.
+ The specific API data frame for the ZigBee Transmit Request (16 bit addressing)
+ API data type is depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ZigBee-Transmit-Request-16bit"
+
+\end_inset
+
+.
+ The API identifier for this API type is 0x01 as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ZigBee-Transmit-Request-16bit"
+
+\end_inset
+
+.
+ The Frame ID field is responsible for identifying the UART data frame for
+ the host to match with a subsequent response.
+ In this research, this field will be set to zero, since a response is not
+ needed.
+ The Destination Address field is the 16 bit address of the desired destination
+ node.
+ The options field specifies extra functionalities within the transmission.
+ Such functionalities are the ability to disable transmit retries, and invoking
+ a traceroute of the transmission.
+ By default, this field is set as 0x00 in order to disable these options.
+ The Payload field is the actual data that needs to be transmitted to the
+ destination.
+ The checksum is used for validating the data frame integrity as discussed
+ earlier in this sub section.
+ Data must be encapuslated in a data frame similar to the one in Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ZigBee-Transmit-Request-16bit"
+
+\end_inset
+
+ for every transmission.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/Tx16 Request.png
+	scale 90
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ZigBee Transmit Request for 16 Bit Addressing
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ZigBee-Transmit-Request-16bit"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ZigBee Recieve Packet (16 bit addressing) is the API type that is found
+ when a packet is recieved from a transmitting source node that utilizes
+ ZigBee Transmit Request API type.
+ As depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ZigBee-Receive-Packet-16bit-addressing"
+
+\end_inset
+
+, the start delimiter, Most Significant Bit (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "MSB"
+description "Most Significant Bit"
+
+\end_inset
+
+) and LSB fields are similar to the structure of the ZigBee Transmit Request
+ data frame.
+ The API Identifier field however, is 0x81.
+ This is the API identifier of ZigBee Recieve Packet for 16 bit addressing.
+ After the API Identifier field, the Source Address field shows the 16 bit
+ address of the transmitting node.
+ The Received Signal Strength Index(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "RSSI"
+description "Received Signal Strength Index "
+
+\end_inset
+
+) of the RF packet is characterized as a 1 byte value in the RSSI field.
+ The RSSI value is helpful in determining the relative distance of the source
+ node.
+ The Options field specifies options such as packet acknowledgement.
+ Similar to the ZigBee Transmit Request API data frame, the Payload of the
+ ZigBee Receive Packet API data frame should never exceed 100 bytes.
+ The last byte within the dataframe is the Checksum field.
+ The checksum of the received data packet can be validated through the following
+ procedure.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Calculate the sum of all the bytes after the LSB (including the checksum).
+\end_layout
+
+\begin_layout Enumerate
+Mask the resulting sum with 0xFF.
+\end_layout
+
+\begin_layout Enumerate
+If the result is 0xFF, there is no error within the data frame.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/Tx16 Receive-message.png
+	scale 90
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ZigBee Receive Packet for 16 Bit Addressing
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ZigBee-Receive-Packet-16bit-addressing"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter
@@ -3238,7 +3903,11 @@ Vision system used in Swarm Implementation
 \end_layout
 
 \begin_layout Section
-Hardware Architecture
+Hardware Used 
+\end_layout
+
+\begin_layout Standard
+The hardware used
 \end_layout
 
 \begin_layout Section

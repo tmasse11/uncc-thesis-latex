@@ -2279,6 +2279,7 @@ reference "fig:Signal-Waveform-of-UART-datapacket"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -2359,6 +2360,7 @@ reference "fig:Transmit-and-Receive-UART-dataflow"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -2641,6 +2643,7 @@ reference "fig:ZigBee802.15.4-OSI-Model"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -2661,7 +2664,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/ZigBee_802-15-4-OSI.png
-	scale 75
+	scale 70
 
 \end_inset
 
@@ -2794,6 +2797,7 @@ reference "fig:DSSS-Scheme-used-in-802154"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -2814,7 +2818,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/802.15.4-DSSS.png
-	scale 70
+	scale 60
 
 \end_inset
 
@@ -3122,6 +3126,7 @@ reference "fig:AT-Command-Format"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -3207,6 +3212,7 @@ reference "fig:An-example-of transparent operation"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -3529,6 +3535,7 @@ reference "fig:Generic-UART-Dataframe"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement h
 wide false
 sideways false
 status open
@@ -3846,7 +3853,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/Tx16 Receive-message.png
-	scale 90
+	scale 82
 
 \end_inset
 
