@@ -3,6 +3,10 @@
 \begin_document
 \begin_header
 \textclass UNCC-thesis
+\begin_preamble
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\end_preamble
 \use_default_options false
 \maintain_unincluded_children false
 \language english
@@ -158,8 +162,8 @@ doctype{thesis}
 
 
 \backslash
-title{Establishing autonomous swarm behavior within unmanned areial vehicles
- in a de-centralized environment}
+title{Establishing autonomous swarm communication behavior within unmanned
+ areial vehicles in a DE-centralized environment}
 \end_layout
 
 \begin_layout Plain Layout
@@ -279,6 +283,10 @@ maketitlepage
 makecopyright
 \end_layout
 
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
 
@@ -294,7 +302,7 @@ ting quadrotors and collaboratively complete a task.
  This allows an autonomous quadrotor swarm to perform tasks quickly when
  compared to manually operated quadrotors.
  Current research in quadrotor swarm algorithms does not take into account
- inaccessible or remote evnironments.
+ inaccessible or remote environments.
  Those swarms require the use of a remote coordination platform that tracks
  the position of the swarm and facilitates swarm coordination from a distance.
  This requires the swarm to be within line-of-sight of the remote coordinator.
@@ -303,14 +311,14 @@ ting quadrotors and collaboratively complete a task.
 
 \begin_layout Abstract
 The research presented in this thesis aims to add more deployment and operation
- flexibility to a quadrotor swarm through the use of a de-centralized coordinati
+ flexibility to a quadrotor swarm through the use of a DE-centralized coordinati
 on algorithm in a wireless environment and a pre-exisiting on-board vision
  system.
- The constructed de-centralized coordination algorithm provides a method
+ The constructed DE-centralized coordination algorithm provides a method
  to track the position of all participating quadrotors, maintains the geometric
  integrity of the swarm through coordinating specific movement commands
  to the followers, establishes a method to uniformly move the swarm to a
- desired posiiton, and provides situational awareness to the swarm through
+ desired position, and provides situational awareness to the swarm through
  collision detection.
  
 \end_layout
@@ -347,7 +355,7 @@ LatexCommand tableofcontents
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -471,7 +479,8 @@ A quadrotor swarm is advantageous in situations where an explanatory effort
  is required for a large area.
  For example, a large natural disaster area that requires surveying for
  damage analysis would benefit from a swarm of quadrotors that autonomously
- collaborate with each other in order to sweep a large area in a quick timeframe.
+ collaborate with each other in order to sweep a large area in a quick time
+ frame.
  Also with a quadrotor swarm, the information that the participating quadrotors
  can be shared within the swarm so that simple decisions can be made without
  human interference, for example, a participating quadrotor notifies the
@@ -504,60 +513,60 @@ Research Contribution
 \end_layout
 
 \begin_layout Standard
-This research establishs a framework that can establish a de-centralized
+This research contributes a framework that can establish a DE-centralized
  swarm algorithm.
  This is achieved through establishing the swarm coordination process on
- the swarm itself, which is referred to as a de-centralized quadrotor swarm.
- This de-centralized quadrotor swarm is realized through two main aspects
+ the swarm itself, which is referred to as a DE-centralized quadrotor swarm.
+ This DE-centralized quadrotor swarm is realized through two main aspects
  that must be present.
- An onboard vision system that resides on participating quadrotor platforms
+ An on board vision system that resides on participating quadrotor platforms
  in the swarm, and a swarm algorithm that is implemented within the swarm
  itself.
  The vision system allows the participating quadrotors to establish their
  position in respect to the center of the swarm.
  The swarm algorithm is a communication based algorithm that accepts position
- data from all participating quadrotors and assigns the approiate movement
+ data from all participating quadrotors and assigns the appropriate movement
  commands.
  The swarm algorithm is necessary in establishing situational awareness
  for each participating quadrotor, and coordinating vectorized movements
  for the entire swarm.
- The swarm algorithim, or coordination process resides in a master quadrotor
+ The swarm algorithm, or coordination process resides in a master quadrotor
  platform that is designated as the coordinator.
  The other participating quadrotors are designated as followers, and receive
  movement commands from the coordinator in respect to the current position
  that the follower advertises to the coordinator.
  The position data that the follower coordinators are in respect to the
  coordinator.
- For scalability, there may be multiple coordinators within a large swarm,
+ For availability, there may be multiple coordinators within a large swarm,
  in where each coordinator is responsible for its own area, or cluster.
- The coordinator at the lowest cluster (the first cluste established) will
+ The coordinator at the lowest cluster (the first cluster established) will
  communicate movement vector commands to the rest of the swarm.
  
 \end_layout
 
 \begin_layout Standard
-The contributions of this research is the establishment of the de-centralized
+The contributions of this research is the establishment of the DE-centralized
  swarm algorithm/ swarm coordination process that issues movement commands
  based on a existing vision system that reports a position of a quadrotor
- based on its orientation to a beacon, obstacle dection within the swarm
- for early obstacle advoidance protocol, a process for swarm maintence within
- the swarm, and a framework to communicate with an existing quadrotor flight
- controller in order so that the quadrotor can carry out movement commands
- issued by the swarm algorithm.
+ based on its orientation to a beacon, obstacle detection within the swarm
+ for early obstacle avoidance protocol, a process for swarm maintenance
+ within the swarm, and a framework to communicate with an existing quadrotor
+ flight controller in order so that the quadrotor can carry out movement
+ commands issued by the swarm algorithm.
  
 \end_layout
 
 \begin_layout Standard
-These contributions are advantegous in the sense that a de-centralized swarm
- algorithm will gurantee a more flexible swarm deployement in where the
- swarm is not confined to a certain area.
- This allows the swarm to approach more versatile missions such as survelliance
+These contributions are advantageous in the sense that a DE-centralized
+ swarm algorithm will guarantee a more flexible swarm deployment in where
+ the swarm is not confined to a certain area.
+ This allows the swarm to approach more versatile missions such as surveillance
  in a environment non accessible to humans.
  
 \end_layout
 
 \begin_layout Section
-Organiztion of Thesis
+Organization of Thesis
 \end_layout
 
 \begin_layout Chapter
@@ -618,7 +627,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-DHL Quadrotor Unmanned Arieal Vehicle used in Payload Transportation
+DHL Quadrotor Unmanned Aerial Vehicle used in Payload Transportation
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:DHL-Quadrotor-Unmanned"
@@ -696,15 +705,15 @@ Quadrotor Platform Dynamic Model
 \end_layout
 
 \begin_layout Standard
-A quadrotor is a unmanned arieal vehicle with four rotors.
+A quadrotor is a unmanned aerial vehicle with four rotors.
  In most quadrotor applications, the rotors on the quadrotor platform are
- brushless electric motors.
+ brush-less electric motors.
  Each rotor produces torque, which in turn produces thrust for the quadrotor
  platform.
  The higher the angular velocity of the rotor, the more thrust the rotor
  will produce.
- Certain combinations of angular velocities of the rotors will generte main
- thrust, pitch torque, and roll torque for the quadrotor 
+ Certain combinations of angular velocities of the rotors will generate
+ main thrust, pitch torque, and roll torque for the quadrotor 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "QUADROTORCRAFTCONTROL"
@@ -814,11 +823,11 @@ where the overall thrust is equal to the summation of the individual thrusts
 \begin_inset Formula $f_{1}-f_{3}$
 \end_inset
 
-,which is the difference of the thrust exterted by rotor M
+,which is the difference of the thrust exerted by rotor M
 \begin_inset Formula $_{1}$
 \end_inset
 
-and the force exterted by rotor M
+and the force exerted by rotor M
 \begin_inset Formula $_{3}$
 \end_inset
 
@@ -828,11 +837,11 @@ and the force exterted by rotor M
 \begin_inset Formula $f_{2}-f_{4}$
 \end_inset
 
-, which is the difference between the thrust exterted by rotor M
+, which is the difference between the thrust exerted by rotor M
 \begin_inset Formula $_{2}$
 \end_inset
 
-and the thrust exterted by the rotor M
+and the thrust exerted by the rotor M
 \begin_inset Formula $_{4}$
 \end_inset
 
@@ -900,7 +909,7 @@ where
 \begin_inset Formula $p$
 \end_inset
 
- is the air desnity, 
+ is the air density, 
 \begin_inset Formula $A$
 \end_inset
 
@@ -908,12 +917,12 @@ where
 \begin_inset Formula $v$
 \end_inset
 
- is the blade object's velocity realitve to the air.
+ is the blade object's velocity relative to the air.
  The angular velocity 
 \begin_inset Formula $ω$
 \end_inset
 
- is proprotional to the linear velocity 
+ is proportional to the linear velocity 
 \begin_inset Formula $v$
 \end_inset
 
@@ -1028,7 +1037,7 @@ name "fig:Quadrotor-Platform-Movement-Model"
 \end_layout
 
 \begin_layout Standard
-Typical motors used within a quadrotor platform are brushless, electric
+Typical motors used within a quadrotor platform are brush-less, electric
  motors that can be controlled by Electronic Speed Controllers(
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -1038,7 +1047,7 @@ description "Electronic Speed Control"
 \end_inset
 
 ).
- Electronic Speed controllers are advanategous for motor control because
+ Electronic Speed controllers are advantageous for motor control because
  they offer a method to regulate the amount of power transferred to the
  motor.
  An ESC interprets a Pulse Width Modulation(
@@ -1062,7 +1071,7 @@ description "Radio Frequency"
 
 \end_inset
 
-) recevier or an auto-pilot system
+) receiver or an auto-pilot system
 \begin_inset CommandInset citation
 LatexCommand cite
 key "BRUSHLESSMOTOR"
@@ -1070,14 +1079,14 @@ key "BRUSHLESSMOTOR"
 \end_inset
 
 .
- ESCs specifically designed for brushless motors are required to be used.
- Brushless ESC platforms drive brushless motors through the transmission
+ ESCs specifically designed for brush-less motors are required to be used.
+ Brush-less ESC platforms drive brush-less motors through the transmission
  of a sequence of signals for rotation.
  
 \end_layout
 
 \begin_layout Standard
-The amount of torque generated by the brushless motors is defined as 
+The amount of torque generated by the brush-less motors is defined as 
 \end_layout
 
 \begin_layout Standard
@@ -1116,7 +1125,7 @@ key "gibianksyl"
 \end_inset
 
 .The torque proportionality constant can be viewed as the amount of torque
- a certain brushless motor can produce under a given current.
+ a certain brush-less motor can produce under a given current.
  
 \end_layout
 
@@ -1125,7 +1134,7 @@ Current Swarm Research
 \end_layout
 
 \begin_layout Standard
-Recently, GRASP laboratory of University of Pennsilvaynia has constructed
+Recently, GRASP laboratory of University of Pennsylvania has constructed
  a swarm of agile micro quadrotors
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1137,8 +1146,8 @@ key "GRASP"
  In the research conducted under the GRASP laboratory, micro quadrotors
  were utilized.
  Each participating micro quadrotor is outfitted with a flight control board,
- Electronic Speed Control motors, power supply, and Zigbee protocoled transceive
-rs as depicted in Figure 
+ Electronic Speed Control motors, power supply, and Zigbee protocol transceivers
+ as depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Micro-Quadrotor GRASP Laboratory"
@@ -1155,11 +1164,11 @@ key "GRASP"
 .
  The main flight control board on the micro quadrotor platform is an ARM
  Cortex-M3 processor with a 72 MHz clock frequency.
- To enable accurate maneuvarbility, the flight control board is equipped
+ To enable accurate maneuverability, the flight control board is equipped
  with a 3-axis accelerometer, and a 2-axis 2,000 deg/s rate gyroscope for
- roll and pitch axis, and a signle axis 500 deg/s rate gyroscope for the
+ roll and pitch axis, and a single axis 500 deg/s rate gyroscope for the
  yaw axis.
- An onboard barometer is also used to measure the current altitude of the
+ An on board barometer is also used to measure the current altitude of the
  micro quadrotor platform.
  The communication platform is comprised of two Zigbee transceivers that
  can operate at 900 MHz or 2.4 GHz.
@@ -1187,7 +1196,7 @@ status open
 
 \begin_layout Plain Layout
 Micro Quadrotor Prototype constructed by GRASP Laboratory of University
- of Pennsilvaynia
+ of Pennsylvania
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GRASP"
@@ -1225,7 +1234,7 @@ The general operation of the swarm of micro quadrotors constructed by GRASP
  that uses a Vicon motion capture system , senses the position of all participan
 ts within the swarm.
  The fixed vision system then streams position data of the participating
- quadrotors to a base station via gigabit ethernet which in turn determines
+ quadrotors to a base station via gigabit Ethernet which in turn determines
  the appropriate swarm coordination.
  The base station uses a MATLAB based process that coordinates movements
  within the swarm from processing the received position data of the fixed
@@ -1257,7 +1266,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Overall System Architectue for Mini-Quadrotor Swarm Implementation
+Overall System Architecture for Mini-Quadrotor Swarm Implementation
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GRASP"
@@ -1285,7 +1294,7 @@ name "fig:Overall-System-Architectue-GRASP"
 \end_layout
 
 \begin_layout Standard
-Depiticed in Figure 
+Depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Overall-System-Architectue-GRASP"
@@ -1304,9 +1313,9 @@ The swarm architecture implemented in the research conducted at GRASP laboratory
  uses a algorithm in where a team of quadrotors is organized into smaller
  groups.
  GRASP defines a group as a collection of participating quadrotors that
- work simutaenously to complete a single task.
+ work simultaneously to complete a single task.
  A team comprises of two or more groups that collaborate to complete an
- overall objective by completeting parallel subtasks 
+ overall objective by completing parallel sub tasks 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GRASP"
@@ -1435,8 +1444,8 @@ name "fig:Formation-following-for-performance-GRASP"
 
 \begin_layout Standard
 The main strengths of the research proposed by GRASP laboratory are that
- the centralized coordination scheme allows for precise arieal maneuvers
- with high agility, and that swarm formations can be constructed with realitve
+ the centralized coordination scheme allows for precise aerial maneuvers
+ with high agility, and that swarm formations can be constructed with realative
  ease.
  The major drawback of the centralized coordination scheme is that the resulting
  swarm is confined to a certain region due to its dependence on an external
@@ -1448,10 +1457,10 @@ reference "fig:Micro-Quadrotor-Swarm GRASP "
 \end_inset
 
 .
- This diminishes the flexibility of deployement for the swarm, thus limiting
+ This diminishes the flexibility of deployment for the swarm, thus limiting
  its applications.
- Therefore, there is a tradeoff for agility and speed of swarm formation
- with deployement flexibility.
+ Therefore, there is a trade off for agility and speed of swarm formation
+ with deployment flexibility.
  
 \end_layout
 
@@ -1472,8 +1481,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Micro Quadrotor Swarm Constructed by GRASP Laboratory of University of Pennsilva
-ynia 
+Micro Quadrotor Swarm Constructed by GRASP Laboratory of University of Pennsylva
+nia 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Micro-Quadrotor-Swarm GRASP "
@@ -1542,7 +1551,7 @@ Power Characteristics
 \end_layout
 
 \begin_layout Subsection
-Tunning capabilities For Flight Precision and Accuracy 
+Tuning capabilities For Flight Precision and Accuracy 
 \end_layout
 
 \begin_layout Chapter
@@ -1576,7 +1585,7 @@ The xbee platform used within this research was the Xbee Series 2 platform.
  This platform is a low power, wireless transceiver that can be used for
  mesh networking solutions.
  The xbee platform follows a packet based transmission.
- The xbee platform is interfacable through a Universal Aysnchronous Receiver/Tra
+ The xbee platform is interfacable through a Universal Asynchronous Receiver/Tra
 nsmitter(
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -1586,8 +1595,8 @@ description "Universal Asynchronous Receiver/Transmitter"
 \end_inset
 
 ) serial interface.
- The UART serial interface is advantegous because it allows a UART equipped
- microcontroller or processing unit to interface with the Xbee platform
+ The UART serial interface is advantageous because it allows a UART equipped
+ micro controller or processing unit to interface with the Xbee platform
  with relative ease.
  
 \end_layout
@@ -1612,6 +1621,13 @@ status open
 
 \begin_layout Plain Layout
 Xbee Series 2 Platform
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1651,8 +1667,21 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="2">
+<lyxtabular version="3" rows="6" columns="2">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1717,7 +1746,7 @@ RF Data Rate
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1726,11 +1755,51 @@ Reception Sensitivity
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 -95 dBm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Operating Frequency
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.4 GHz
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Frequency Channels 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16
 \end_layout
 
 \end_inset
@@ -1741,16 +1810,36 @@ Reception Sensitivity
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-RF Performance Specifications for Xbee Series 2 platform.
+RF Performance Specifications for Xbee Series 2 Platform.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:RF-Performance-Specifications"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
 
 \end_inset
 
@@ -1778,7 +1867,7 @@ description "Industrial Scientific Medical"
 \end_inset
 
 ) band.
- This allows license free deployement and operation of the xbee platform.
+ This allows license free deployment and operation of the xbee platform.
  The antenna used within the Xbee platform is a integrated whip that is
  etched onto the platform.
  
@@ -1787,9 +1876,35 @@ description "Industrial Scientific Medical"
 \begin_layout Standard
 The power specifications of the Xbee Series 2 platform is depicted in Table
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Power-Specfications-for Xbee S2"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
 <features rotate="0" tabularvalignment="middle">
@@ -1879,15 +1994,1243 @@ Power-down Current
 
 \end_inset
 
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Power Specifications for Xbee Series 2 Platform
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Power-Specfications-for Xbee S2"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Subsection
-Xbee Series 2 Platform Operation
+Xbee Series 2 Module Interfacing
+\end_layout
+
+\begin_layout Standard
+The xbee module is interfaced through a logic-level asynchronous serial
+ interface.
+ The Pin connections utilized on the Xbee platform is depicted in Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Relevant-Pin-Mapping for Xbee S2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pin #
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pin Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Logic Direction
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pin Description 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VCC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Voltage for Power Supply
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DOUT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Output
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Logic Level Pin for Data Transmission
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DIN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Input
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Logic Level Pin for Data Reception 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GND
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ground for entire Xbee Platform 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relevant Pin Mapping of Xbee Series 2 Platform Used in Research 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Relevant-Pin-Mapping for Xbee S2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As depicted in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Relevant-Pin-Mapping for Xbee S2"
+
+\end_inset
+
+, the serial interface is established with pins 2 and 3 for data transmission
+ and data reception respectively.
+ Data that is to be transmitted through RF propagation by the xbee module
+ is sent in a serial fashion through pin 3 (DIN), whereas data that has
+ been received by the xbee module can be accessed through pin 2 (DOUT).
+ The data sent through the DIN pin should be sent in bursts known as packets.
+ The structure of such a packet is depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Signal-Waveform-of-UART-datapacket"
+
+\end_inset
+
+.
+ When the transmission line is idle (i.e.
+ nothing is transmitted) the pin should receive a constant high logic level.
+ Start delimiter of the UART packet is a single bit a logic level low.
+ The payload of the packet follows immediately after the start delimiter.
+ The maximum size of the payload is 1 byte (8 bits).
+ After the last bit of the data payload is transmitted, a stop bit immediately
+ follows.
+ This stop bit is logic level high.
+ There is no utilization of bit parity within the UART protocol for the
+ Xbee platform configured for this research.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/UART Packet Xbee S2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Signal Waveform of UART Data Packet Configured for Xbee Series 2 Module
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Signal-Waveform-of-UART-datapacket"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The serial characters that are sent to the DIN (Pin 3) line, will be stored
+ into a serial receive buffer until it can be processed into a RF data stream
+ for transmission.
+ Likewise, when a RF data stream is captured by the Xbee module, it is stored
+ in a RF receive buffer until the stream can be processed into a baseband
+ signal, and eventually a UART data stream.
+ This UART data stream will then be available at the DOUT will be stored
+ in the Serial Transmit Buffer until the RF reception is complete.
+ However, if the Serial Transmit Buffer becomes full in such that all of
+ the data within the incoming RF packet cannot fit within the buffer, the
+ whole packet will be dropped, and another attempt at receiving the RF packet
+ will be necessary.
+ The contents of the Serial Transmit Buffer will be available at the DOUT
+ ( pin 2) line.
+ Such a depiction of this data flow is in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Transmit-and-Receive-UART-dataflow"
+
+\end_inset
+
+.The Xbee platform cannot receive and transmit RF data concurrently.
+ Therefore if serial data is sent to the DIN pin while the Xbee module is
+ receiving RF data.
+ The serial data will reside in the Serial Transmit Buffer until RF data
+ has finished being obtained by the module.
+ When this occurs, the serial data in the Serial Transmit Buffer will be
+ processed into a RF stream, and propagated onto the RF link via the embedded
+ antenna.
+ The Serial Receive Buffer size is 202 bytes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/UART Data Flow XbeeS2.png
+	scale 59
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Transmit and Receive Data Flow for Xbee Series 2 Platform 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Transmit-and-Receive-UART-dataflow"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+ZigBee Networks
+\end_layout
+
+\begin_layout Standard
+ZigBee is a networking protocol that Xbee Series 2 modules utilize.
+ A zigbee network is a Personal Area Network (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "PAN"
+description "Personal Area Network"
+
+\end_inset
+
+) that consists of one coordinator, multiple routers and/or end devices.
+ The first type of device within a ZigBee network is the Coordinator device.
+ To construct a PAN, the coordinator must have a frequency channel and PAN
+ ID selected on startup
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+.
+ These parameters can be set while in Command mode on the Xbee platform
+ (Detailed in Xbee Series 2 Module Operation Modes).
+ Once the PAN is established, other devices may join the PAN.
+ However, in order for these devices to join the PAN, the PAN ID of the
+ devices must match the PAN ID of the desired PAN to join.
+ Once a device joins the PAN, a 16-bit network address will be assigned
+ to it.
+ Once this 16-bit address is assigned, the device can transmit/receive data
+ with other particpating devices within the PAN.
+ The network address of the coordinator will always be 0.
+ A Xbee module can be configured to be a coordinator through setting the
+ 
+\begin_inset Quotes eld
+\end_inset
+
+CE
+\begin_inset Quotes erd
+\end_inset
+
+ parameter while in Command Mode.
+ There can only be one Coordinator per PAN.
+\end_layout
+
+\begin_layout Standard
+The second type of device within a ZigBee network, is the Router device.
+ This device is an intermediate node that can route/relay data from other
+ devices.The Router device also has the ability to allow other devices to
+ join the PAN, and can assist in routing data throughout the PAN.
+ When the Router device allows a device to join, it establishes a parent/child
+ relationship in where the newly joined device is the child, and the Router
+ device that the new device joined under, is the parent device
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+.
+ This relationship holds true when a device joins under the Coordinator
+ device as well.
+ As a parent device, the Router device(or Coordinator device) can route
+ data on behalf of a child device to ensure it reaches the correct destination.
+ 
+\end_layout
+
+\begin_layout Standard
+The third type of device within the ZigBee network is the End device.
+ End devices can only communicate to the parent (Router device or Coordinator
+ device) of which it joined.
+ Therefore, it does not have routing capabilities like the Router device
+ and Coordinator device.
+ End devices also do not have the capability of allowing new devices to
+ join the PAN.
+ End devices however, are the only devices that can operate in the Low Power
+ mode.
+\end_layout
+
+\begin_layout Standard
+A depiction of a typical ZigBee network is in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Zigbee-Network-Topology"
+
+\end_inset
+
+.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Zigbee-Network-Topology"
+
+\end_inset
+
+, the Router devices and Coordinator are located at the verticies of the
+ PAN network, which allows them to route data to different regions of the
+ network.
+ However the expansion of the PAN is discontiuned at the End devices.
+ If the a new device wishes to join the network, it must join under the
+ Coordinator device or a available Router device of that PAN.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/zigbee network.png
+	scale 80
+	clip
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ZigBee Network Topology
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Zigbee-Network-Topology"
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
-Module Interfacing 
+ZigBee Open Systems Interconnection (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "OSI"
+description "Open Systems Interconnection "
+
+\end_inset
+
+) Stack 
+\end_layout
+
+\begin_layout Standard
+The ZigBee protocol is a upper layer protocol that handles the networking,
+ transportation, presentation and application layers of communication of
+ Xbee platforms.
+ This protocol was constructed in order to compliment the Institute of Electrica
+l and Electronics Engineers(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "IEEE"
+description "Institute of Electrical and Electronics Engineers\\\\"
+
+\end_inset
+
+) 802.15.4 as depicited in Figure 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/ZigBee_802-15-4-OSI.png
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ZigBee/802.15.4 OSI Model
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ZIGBEENETWORKS"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Coordinator Behavior during Network Formation
+\end_layout
+
+\begin_layout Standard
+When a Xbee module configured as a Coordinator device powers on, it performs
+ the following procedure.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Perform a energy scan on multiple frequency channels to determine a unused
+ frequency channel for the PAN.
+\end_layout
+
+\begin_layout Enumerate
+Frequency channels with high detected energy levels are removed from considerati
+on, and a list of low energy frequency channels remain.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Issue a 802.15.4 beacon request command on a low energy frequency channels.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If there are devices (Router or End Device) operating on the frequency channel
+ on which a beacon request command was broadcasted, the devices respond
+ with a beacon transmission that indicates the PAN ID of their operating
+ PAN and if joining is allowed.
+ If there is a device response with joining not allowed, the Coordinator
+ will move to the next low energy frequency channel.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Repeat Steps 3 and 4 until a low energy frequency channel with no beacon
+ response is found.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Router Device Behavior During Network Formation
+\end_layout
+
+\begin_layout Standard
+When a Xbee module configured as a Router device is activated, it follows
+ the following procedure for integrating into a PAN.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Issue a 802.15.4 beacon request command on a frequency channel in order to
+ identify local PANs.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Listen to the channel for a response.
+ If there are devices operating on the certain frequency channel ( nearby
+ Coordinator devices or Router devices), they will respond to the 802.15.4
+ beacon request issued by the new Router device with the PAN ID and the
+ frequency channel that they are operating on.
+ The Router determins if the valid PAN is found based on the PAN ID in the
+ response of the nearby devices.
+ In this research, the PAN ID of all established PANs are preset in the
+ Coordinator's firmware.
+ Therefore, the Router determines that the PAN ID is vailid if it matches
+ the PAN ID parameter within its firmware.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If there is no response on the current frequency channel, repeat steps 2
+ and 3 on the next frequency channel.
+\end_layout
+
+\begin_layout Enumerate
+If a valid PAN ID is found, issue a join request to the device that sent
+ the beacon response.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If joining is successful, the device the response to the join request will
+ be a join confirmation.
+\end_layout
+
+\begin_layout Enumerate
+The Router device is now within the PAN.
+\end_layout
+
+\begin_layout Subsubsection
+End Device Behavior During Network Formation
+\end_layout
+
+\begin_layout Standard
+The process of a End Device joining a PAN is identical to the process of
+ a Router device joining a PAN.
+\end_layout
+
+\begin_layout Subsection
+Xbee Series 2 Module Operation Modes
+\end_layout
+
+\begin_layout Subsubsection
+Transparent Operation
+\end_layout
+
+\begin_layout Standard
+The most simplistic of the operation modes of the Xbee Series 2 platform,
+ transparent mode enables the Xbee platform to transmit the raw serial character
+s from the Serial Receive Buffer onto the RF link.
+ The destination high and destination low addresses must be specified in
+ the firmware of the Xbee platform in order for a successful transmission/recept
+ion to take place.
+ Transparent operation allows the user to transmit data through the RF link
+ without the specification of header information such as the destination
+ address, packet size, and other packet information.
+ The user simply transmits the character data through the DIN line and the
+ Xbee module will transmit it to the destination module specified by the
+ destination high and destination low addresses in the module firmware.
+ When in transparent operation and receiving RF data, the Xbee module automatica
+lly conditions the received RF packet into the raw character data that was
+ received, and the received data will be available on the DOUT line.
+ An example depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:An-example-of transparent operation"
+
+\end_inset
+
+ shows what data needs to be present on the DIN line of the transmitting
+ Xbee module and what data that will be seen on DOUT line of the receiving
+ Xbee module at the conclusion of the transmission.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/transparent_mode_xbee_example.png
+	scale 66
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example of Data Transmission Scheme in Transparent Operation 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:An-example-of transparent operation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sample-Python-Script for Transparent Operation"
+
+\end_inset
+
+ shows Python scripting that would be programmed into the UART compatible
+ microprocessor for sending data through UART to the transmitting Xbee module
+ (Transmission Process in Python Scripting), and Python scripting that would
+ be programmed to the UART compatible microprocessor for receiving data
+ through the UART from the receiving Xbee module ( Reception Process in
+ Python Scripting).
+ It can be shown from the Transmission Process in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sample-Python-Script for Transparent Operation"
+
+\end_inset
+
+ does not require any packet formation/construction.
+ Only the data payload, 'A' , must be sent to the Xbee module for RF transmissio
+n.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+####################################Transmission Process in Python Scripting####
+##################################################
+\end_layout
+
+\begin_layout Plain Layout
+
+self.ser_conn = ser.Serial(port = serialport,baudrate=baudrate,stopbits =
+ 1,parity = 'N',bytesize = 8,)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+self.ser_conn.write('A') # Transmit the character 'A' to the Xbee Module for
+ RF transmission.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+########################### Reception Process in Python Scripting###############
+###################################################
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+self.ser_conn = ser.Serial(port = serialport,baudrate=baudrate,stopbits =
+ 1,parity = 'N',bytesize = 8,)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#See how many bytes are in the receive buffer.
+          
+\end_layout
+
+\begin_layout Plain Layout
+
+content_size_in_rx_buffer = self.ser_conn.inWaiting()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+while content_size_in_rx_buffer:            
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_chunk = self.ser_conn.read(content_size_in_rx_buffer)             
+\end_layout
+
+\begin_layout Plain Layout
+
+	content_size_in_rx_buffer -= len(data_chunk)             
+\end_layout
+
+\begin_layout Plain Layout
+
+    received_data.extend(data_chunk)#string type
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sample Python Script for Microcontrollers used to Drive Xbee Transmitting
+ Module and Xbee Receiving Module in Transparent Operation Mode.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sample-Python-Script for Transparent Operation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The maximum amount of data that can be transmitted at a single time by the
+ Xbee module while in Transparent mode is 72 bytes.
+ While in Transparent mode, there can only be point to point communication
+ established, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:An-example-of transparent operation"
+
+\end_inset
+
+.
+ This point to point communication link is defined by the destination high
+ and destination low addresses specified (described in AT Command Mode section)
+ within the firmware of the transmitting Xbee module.
+\end_layout
+
+\begin_layout Subsubsection
+Application Programming Interface(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "API"
+description "Application Programming Interface"
+
+\end_inset
+
+) Mode
+\end_layout
+
+\begin_layout Standard
+API operation mode is an alternative to the Transparent Operation.
+ This operation is a frame-based protocol that gives the application the
+ availablity to interact with networking capabilities of the the Xbee module
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "xbeedatasheet"
+
+\end_inset
+
+.
+ This feature gives the user the flexibility of constructing more complex
+ networks topologies that included multiple Xbee modules, as well as the
+ flexibility to perform broadcasti/multicast transmissions.
+ To enable API mode for the Xbee module, the 
+\begin_inset Quotes eld
+\end_inset
+
+AP
+\begin_inset Quotes erd
+\end_inset
+
+ parameter within the Xbee module's firmware must be set to 
+\begin_inset Quotes eld
+\end_inset
+
+1
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This is modification is achieved through entering Command Mode and changing
+ the parameter by sending the characters 
+\begin_inset Quotes eld
+\end_inset
+
+ATAP=1
+\begin_inset Quotes erd
+\end_inset
+
+ while in Command mode.
+ Operation details of this mode is located in 
+\begin_inset Quotes eld
+\end_inset
+
+API Operation
+\begin_inset Quotes erd
+\end_inset
+
+ section of this thesis.
 \end_layout
 
 \begin_layout Chapter
@@ -1961,15 +3304,15 @@ Position Recognition and Coordination
 \end_layout
 
 \begin_layout Section
-Fine -Granied Position Coordination and Maintenience 
+Fine -Grained Position Coordination and Maintenance 
 \end_layout
 
 \begin_layout Section
-Coarse-Grain Position Maintenience and Movement Vector Construction 
+Coarse-Grain Position Maintenance and Movement Vector Construction 
 \end_layout
 
 \begin_layout Section
-Swarm Maintenience 
+Swarm Maintenance 
 \end_layout
 
 \begin_layout Section
@@ -1981,7 +3324,7 @@ Movement Interface with Flight Controller
 \end_layout
 
 \begin_layout Section
-Overall Software Archietecture
+Overall Software Architecture
 \end_layout
 
 \begin_layout Chapter
@@ -2142,7 +3485,7 @@ Section in appendix
 \end_layout
 
 \begin_layout Standard
-This will be source code used within reasearch.
+This will be source code used within research.
 \end_layout
 
 \begin_layout Vita
