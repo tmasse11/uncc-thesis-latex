@@ -676,19 +676,11 @@ This thesis will first provide an overview of the quadrotor platform with
  a dicussion of a basic dyanamic model to represent its flight model and
  provide an insight to the research that has recently been conducted within
  the academic community.
-\end_layout
-
-\begin_layout Standard
-Chapter 3 , 4, and 5 will explore the characteristics of the quadrotor platform,
- communication platform, and vision system used within the conducted research
- respectively.
- Chapter 6 then discusses the swarm algorithm design and implementation
+ Chapter 3 and 4will explore the characteristics of the quadrotor platform
+ and communication platform, used within the conducted research respectively.
+ Chapter 5 then discusses the swarm algorithm design and implementation
  within the research.
- 
-\end_layout
-
-\begin_layout Standard
-Chapter 7 highlights the concerns and areas of improvement in the future
+ Chapter 6 highlights the concerns and areas of improvement in the future
  with the platforms, algorithms used within the research, and future works
  that can be explored.
  Chapter 8 gives a brief overview of the research completed and a prospective
@@ -4399,6 +4391,14 @@ name "fig:ZigBee-Receive-Packet-16bit-addressing"
 
 \begin_layout Chapter
 Swarm Algorithm Design and Implementation
+\end_layout
+
+\begin_layout Section
+Vision System Used
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Section
