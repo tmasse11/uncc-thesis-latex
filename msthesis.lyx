@@ -1749,13 +1749,57 @@ Mechanical Specifications of the ST360 model
 \end_layout
 
 \begin_layout Subsubsection
-Quadrtoror Power Supply 
+Quadrtoror Power Supply
 \end_layout
 
 \begin_layout Standard
 The power supply used for the quadrotor platform was a 3-cell lithium-polymer
  battery with a 2200mAh capacity and a nominal voltage of 11.1V.
+ The desired maximum flight time for the quadrotor was determined to be
+ 10 minutes.
+ Using this information, the amount of current draw that the quadrotor can
+ safely operate can be determined through the following relationship.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{op}=\frac{CAP_{BAT}}{T_{OP}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $CAP_{BAT}$
+\end_inset
+
+is the battery's current capacity, 
+\begin_inset Formula $T_{OP}$
+\end_inset
+
+is the desired operating time, and 
+\begin_inset Formula $I_{OP}$
+\end_inset
+
+is the operating current of the battery.
+ With a desired flight time of 10 minutes, and a battery capacity 2200 milli
+ amp hours (mAh), the operating current was determined as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I_{OP}=\frac{2200mAh}{0.1667}=13200mA
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1897,6 +1941,10 @@ key "AIOP"
  
 \end_layout
 
+\begin_layout Subsection
+Estimation of Power Consumption
+\end_layout
+
 \begin_layout Section
 Software Architecture of Quadrotor Platform
 \end_layout
@@ -1980,7 +2028,7 @@ reference "fig:Modifying-PID-values"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
+placement h
 wide false
 sideways false
 status open
@@ -4422,10 +4470,6 @@ placement H
 wide false
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset ERT
