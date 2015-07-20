@@ -1717,7 +1717,7 @@ Weight
 \begin_inset Text
 
 \begin_layout Plain Layout
-170g (without added electronics
+170g (without added electronics)
 \end_layout
 
 \end_inset
@@ -1764,9 +1764,9 @@ The power supply used for the quadrotor platform was a 3-cell lithium-polymer
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-I_{op}=\frac{CAP_{BAT}}{T_{OP}}
-\]
+\begin{equation}
+I_{op}=\frac{CAP_{BAT}}{T_{OP}}s\label{eq:Quadrotor Operating Current}
+\end{equation}
 
 \end_inset
 
@@ -1793,13 +1793,145 @@ is the operating current of the battery.
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
-I_{OP}=\frac{2200mAh}{0.1667}=13200mA
-\]
+\begin{equation}
+I_{OP}=\frac{2200mAh}{0.1667}=13200mA\label{eq: Operating Current Imp}
+\end{equation}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+This operating current of 13.20 amperes was one of the factors used to help
+ determine the type of motors that will suffice for the quadrotor.
+ The other factor that had to be accounted for is the potential thrust that
+ the quadrotor platform can produce with the 8045 propellers.
+ Based on momentum theory, the relationship that characterizes the thrust
+ of the motor and propellers can be determined as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T=\frac{\pi}{4}D^{2}pv\triangle v\label{eq:Thrust of Quadrotor Propellers}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where T is the thrust exerted, D is the diameter of the propeller, 
+\begin_inset Formula $p$
+\end_inset
+
+ is the density constant of the atmosphere( in this case, the density of
+ air at an altitude lower than 20m), 
+\begin_inset Formula $v$
+\end_inset
+
+ is the velocity of the air near the propeller, and 
+\begin_inset Formula $\triangle v$
+\end_inset
+
+ is the velocity of the air accelerated by the propeller.
+ The air in the surronding atmosphere will typically have a velocity that
+ is half of the velocity of the air being accelerated by the propeller.
+ Therefore, the thrust relationship can be simplified into the following
+ relationship
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T=\frac{\pi}{8}D^{2}p\triangle v\label{eq: Simplified Thrust of Quadrotor Propellers}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The velocity of the air being accelerated by the propeller was determined
+ as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\triangle v=\frac{2P}{T}\label{eq:Velocity of Air Being Accelerated by Propeller}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where P is the power transmitted to the rotors.
+ This value was determined to be 24 watts.
+ Substituting the velocity of air being accelerated by the propellers into
+ the overall thrust relationship yields the following equation.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T=\left[\frac{\pi}{2}D^{2}pP^{2}\right]^{1/3}\label{eq:Thrust in Terms of Power Delievered to Rotors}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $p$
+\end_inset
+
+ is the density constant of the atmosphere(air in this case) and P is the
+ power transmitted to the rotor.
+ The diameter of the propellers used in this research was 8 inches.
+ The density constant of the atmosphere is 1.225, and the power transmitted
+ to the rotor and propeller was 24 watts.
+ Using this information, and Netwon's second law 
+\begin_inset Formula $T=ma$
+\end_inset
+
+, where T is the torque applied(force), m is the mass of the body, and a
+ is the acceleration(gravity in this case), the static thrust in terms of
+ mass can be calculated as shown in the equation below.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+m=\frac{\left[\frac{\pi}{2}8^{2}*1.225*24watts^{2}\right]^{1/3}}{9.81}=364.53grams\label{eq:Static Thrust in Terms of Mass}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where, m is the mass that can be supported.
+ The static thrust of each propeller was determined to be capable of lifting
+ 364.53 grams at a propeller speed of 10000 rotations per minute.
+ Therefore the quadrotor platform will theoretically be able to support
+ a weight of 1458.12 grams.
+ This served as a baseline for the weight limit of the platform, including
+ the quadrotor frame, electronic equipment, and payload.
+ The motor used within the research (shown in section 3.1.0.3) fits within
+ the specifications of operating current, and will provide more than enough
+ thrust to the quadrotor platform.
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -1808,7 +1940,8 @@ Motors
 
 \begin_layout Standard
 The motor used is the ST2210 brushles motor.
- This motor produces 600 grams of thrust at 1050 Rotations Per Minute(
+ This motor has the potential to produce 600 grams of thrust at 1050 Rotations
+ Per Minute(
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "RPM"
@@ -4449,9 +4582,9 @@ Vision Based Position System Used
 The vision system used within the swarm algorithm is designed to report
  the position of a following quadrotor in relation to the coordinating or
  leading quadrotor within the cluster.
- The vision system utilizes a set of infrared beacons and a camera system.
- The infrared beacon used for experimentation was a Wii bar beacon as illustrate
-d in figure 
+ The vision system utilizes a set of beacons and a camera system.
+ The beacon used for experimentation was a Wii bar beacon as illustrated
+ in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Beacon-Structure-Used"
@@ -4461,7 +4594,36 @@ reference "fig:Beacon-Structure-Used"
 .
  The beacon system is 20cm in length, and contains a group of 5 infrared
  LEDs on each end.
- 
+ Each of the Light Emitting Diodes (
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "LED"
+description "Light Emitting Diode"
+
+\end_inset
+
+) radiated light at a wavelength of 940 nanometers(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "nm"
+description "nanometer"
+
+\end_inset
+
+).
+ This meant that the beacon system used operated in the infrared band as
+ shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Illustration-of-Infrared-beacon"
+
+\end_inset
+
+.
+ This is a attractive characteristic for the vision system because with
+ an IR filter, the LEDs can be easily distinguished from the surronding
+ environment in most situations such as a high lit environment, or a dim
+ lit environment.
 \end_layout
 
 \begin_layout Standard
@@ -4529,7 +4691,124 @@ name "fig:Beacon-Structure-Used"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
 
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/wii sensor bar ir.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Illustration of Infrared LED Pattern in Beacon Structure Used in Vision
+ System
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Illustration-of-Infrared-beacon"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The camera system consisted of the Pi camera that resided on the swarm controlle
+r, a Raspberry Pi (depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Raspberry-Pi-Model"
+
+\end_inset
+
+) processing platform.
+ The Pi Camera is a 5 megapixel camera that attaches to the Raspberry Pi
+ via Camera Interface Specifications(
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "CIS"
+description "Camera Interface Specifications"
+
+\end_inset
+
+) version 2, or commonly referred to as CSI-2
+\begin_inset CommandInset citation
+LatexCommand cite
+key "magpi"
+
+\end_inset
+
+.
+ The dimensions of the camera is 25mm x 20mm x 9mm with a weight of approximatel
+y 3 grams.
+ This provides a small form factor, which is attractive for deployment on
+ the quadrotor platform.
+ In order to view the infrared LEDs on the beacon platform, a infrared filter
+ is applied on the Pi Camera.
+ This filter only allows the carmera to see infrared radiation, thus eliminating
+ noise from the envrionment introduced by factors such as lighting conditions.
+ The vision system calculates the position of the object that the infrared
+ beacon is attached to by analyzing the observed LED orientation that was
+ captured by the camera.
+ The vision system can determine the distance of the beacon position in
+ respect to the camera, the perpendicularity(lateral offset) of the beacon
+ in respect to the camera, as well as the angular rotation of the beacon
+ in respect to the camera.
+ Depending on the position of the beacon, the camera will determine the
+ characteristics mentioned before by analyzing the distance observed between
+ the LEDs of the beacon.
+ The vision system reports the lateral position and distance in centimeters.
+ 
 \end_layout
 
 \begin_layout Section
@@ -5345,8 +5624,8 @@ reference "fig:Boundary-Concept-Utilized"
  nodes, and how there is a void area between each boundary area.
  The leader node maintains a database of every follower node within its
  cluster in memory.
- This database keeps the position of the respective follower node in respect
- to the leader node.
+ This database keeps the previous positions of the respective follower node
+ in respect to the leader node.
  Using the information of the last position reported by a certain follower,
  along with a new position report of the follower node, the leader node
  is able to make a decision on whether the follower node will exceed its
