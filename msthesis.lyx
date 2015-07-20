@@ -4398,8 +4398,94 @@ Vision Based Position System Used
 \end_layout
 
 \begin_layout Standard
-The main purpose of the vision system is to effectively report the position
- of a quadorot 
+The vision system used within the swarm algorithm is designed to report
+ the position of a following quadrotor in relation to the coordinating or
+ leading quadrotor within the cluster.
+ The vision system utilizes a set of infrared beacons and a camera system.
+ The infrared beacon used for experimentation was a Wii bar beacon as illustrate
+d in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Beacon-Structure-Used"
+
+\end_inset
+
+.
+ The beacon system is 20cm in length, and contains a group of 5 infrared
+ LEDs on each end.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{adjustbox}{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/wii sensor bar.png
+	scale 40
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{adjustbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Beacon Structure Used in Vision System
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Beacon-Structure-Used"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Section
