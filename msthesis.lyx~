@@ -4796,8 +4796,7 @@ y 3 grams.
  In order to view the infrared LEDs on the beacon platform, a infrared filter
  is applied on the Pi Camera.
  This filter only allows the carmera to see infrared radiation, thus eliminating
- visual noise from the envrionment introduced by factors such as lighting
- conditions.
+ noise from the envrionment introduced by factors such as lighting conditions.
  The vision system calculates the position of the object that the infrared
  beacon is attached to by analyzing the observed LED orientation that was
  captured by the camera.
@@ -5625,8 +5624,8 @@ reference "fig:Boundary-Concept-Utilized"
  nodes, and how there is a void area between each boundary area.
  The leader node maintains a database of every follower node within its
  cluster in memory.
- This database keeps the position of the respective follower node in respect
- to the leader node.
+ This database keeps the previous positions of the respective follower node
+ in respect to the leader node.
  Using the information of the last position reported by a certain follower,
  along with a new position report of the follower node, the leader node
  is able to make a decision on whether the follower node will exceed its
@@ -6103,7 +6102,7 @@ Source Code Used in Research
 
 \begin_layout Standard
 The respository of the software used is located at https://github.com/UNCC-Autono
-mous-Quadrotor-Team/QR and is open source.
+mous-Quadrotor-Team/QR.
 \end_layout
 
 \end_body
