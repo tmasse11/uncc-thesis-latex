@@ -320,7 +320,7 @@ on algorithm in a wireless environment and a pre-exisiting on-board vision
  method to maintain the geometric integrity of the swarm through coordinating
  specific movement commands to the followers, establishes a communication
  algorithmto uniformly move the swarm to a desired position, and provides
- situational awareness to the swarm through collision detection.
+ situation awareness to the swarm through collision detection.
  
 \end_layout
 
@@ -400,6 +400,15 @@ nomname}{LIST OF SYMBOLS}
 addcontentsline{toc}{chapter}{
 \backslash
 nomname}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+nomname}{0mm}
 \end_layout
 
 \end_inset
@@ -518,7 +527,7 @@ The main objective of this research is to explore the best method of creating
  The type of swarm topology used throughout this research was the cross
  formation.
  This is where the coordinating node, or the leader quadrotor is established
- within the center of the swarm, and the following nodes are at realitvely
+ within the center of the swarm, and the following nodes are at relatively
  perpendicular positions in relation to the quadrotor as depicted in Figure
  
 \begin_inset CommandInset ref
@@ -530,7 +539,7 @@ reference "fig:Basic-Swarm-Attemptingcrossformation"
 .
  The Leading/Coordinating quadrotor in this research will be outfitted with
  a set of beacons to each of its sides along with a camera that will have
- visibility of a staionary beacon.
+ visibility of a stationary beacon.
  Each of the followers will be outfitted with a beacon on all sides and
  a camera with initial line of sight visibility with the beacons located
  on the coordinating quadroror.
@@ -620,9 +629,9 @@ This research contributes a framework that can establish a de-centralized
  The swarm algorithm is a communication based algorithm that accepts position
  data from all participating quadrotors and assigns the appropriate movement
  commands.
- The swarm algorithm is necessary in establishing situational awareness
- for each participating quadrotor and coordinating vectorized movements
- for the entire swarm.
+ The swarm algorithm is necessary in establishing situation awareness for
+ each participating quadrotor and coordinating vectored movements for the
+ entire swarm.
  The swarm algorithm or coordination process resides in a master quadrotor
  platform that is designated as the coordinator.
  The other participating quadrotors are designated as followers, and receive
@@ -638,15 +647,21 @@ This research contributes a framework that can establish a de-centralized
 \end_layout
 
 \begin_layout Standard
-The contributions of this research is the establishment of the de-centralized
- swarm algorithm/ swarm coordination process that issues movement commands
- based on a existing vision system that reports a position of a quadrotor
- based on its orientation to a beacon, obstacle detection within the swarm
- for early obstacle avoidance protocol, a process for swarm maintenance
- within the swarm, and a framework to communicate with an existing quadrotor
- flight controller in order so that the quadrotor can carry out movement
- commands issued by the swarm algorithm.
- 
+The contributions of this research are
+\end_layout
+
+\begin_layout Itemize
+the establishment of the de-centralized swarm algorithm/ swarm coordination
+ process that issues movement commands based on a existing vision system
+ that reports a position of a quadrotor based on its orientation to a beacon
+\end_layout
+
+\begin_layout Itemize
+obstacle detection within the swarm for early obstacle avoidance protocol
+\end_layout
+
+\begin_layout Itemize
+a process for swarm maintenance within the swarm
 \end_layout
 
 \begin_layout Standard
@@ -664,7 +679,7 @@ Organization of Thesis
 
 \begin_layout Standard
 Chapter 2 of this thesis provides a physical overview of the quadrotor platform
- through providing a dicussion of a its basic dyanamic model, and provides
+ through providing a discussion of a its basic dynamic model, and provides
  an insight to the research that has recently been conducted within the
  academic community.
  Chapter 3 and 4 of this thesis explore the characteristics of the quadrotor
@@ -1548,7 +1563,7 @@ name "fig:Formation-following-for-performance-GRASP"
 \begin_layout Standard
 The main strengths of the research proposed by GRASP laboratory are that
  the centralized coordination scheme allows for precise aerial maneuvers
- with high agility, and that swarm formations can be constructed with realative
+ with high agility, and that swarm formations can be constructed with relative
  ease.
  The major drawback of the centralized coordination scheme is that the resulting
  swarm is confined to a certain region due to its dependence on an external
@@ -1886,7 +1901,7 @@ where
  The diameter of the propellers used in this research was 8 inches.
  The density constant of the atmosphere is 1.225, and the power transmitted
  to the rotor and propeller was 24 watts.
- Using this information, and Netwon's second law 
+ Using this information, and Newton's second law 
 \begin_inset Formula $T=ma$
 \end_inset
 
@@ -2090,7 +2105,7 @@ The firmware used with the AIOP v2 flight control board is the MegaPirateNG
 \end_layout
 
 \begin_layout Itemize
-Download the latest Arduino environment from the offical site.
+Download the latest Arduino environment from the official site.
  
 \end_layout
 
@@ -2124,7 +2139,7 @@ The flight control user interface used in the research was MissionPlanner.The
  flight control user interface gives the ability of tunning the quadrotor
  platform for better flight performance, as well as provide a method to
  choose a flight mode for the quadrotor platform.
- The MegaPriateNG firmware operates on a Proportional Integral Derative
+ The MegaPriateNG firmware operates on a Proportional Integral Derivative
  (
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
@@ -2134,9 +2149,9 @@ description "Proportional Integral Deravative "
 \end_inset
 
 ) controller.
- Tunning for quadrotor drift can be done through modifying the I value of
+ Tuning for quadrotor drift can be done through modifying the I value of
  the controller.
- Tunning for the responsiveness of the quadrotor can be done through modifying
+ Tuning for the responsiveness of the quadrotor can be done through modifying
  the P value of the PID controller as shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2222,25 +2237,13 @@ name "fig:Modifying-PID-values"
 \end_layout
 
 \begin_layout Chapter
-Communication Platform Used
-\end_layout
-
-\begin_layout Section
-Overview
-\end_layout
-
-\begin_layout Subsection
 Requirements and Desired Functionality of the Communication Platform
 \end_layout
 
 \begin_layout Standard
 The purpose of the communication platform within the swarm is to provide
  a wireless medium to transmit and receive position data of the participating
- quadrotors and send 
-\end_layout
-
-\begin_layout Subsection
-Decision of Platform Selection 
+ quadrotors and send movement commands to the entire swarm.
 \end_layout
 
 \begin_layout Section
@@ -2252,8 +2255,8 @@ The XBee platform used within this research was the XBee Series 2 platform.
  This platform is a low power, wireless transceiver that can be used for
  mesh networking solutions.
  The XBee platform follows a packet based transmission.
- The XBee platform is interfacable through a Universal Asynchronous Receiver/Tra
-nsmitter(
+ The XBee platform is interfaced through a Universal Asynchronous Receiver/Trans
+mitter(UART
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "UART"
@@ -2313,7 +2316,7 @@ end{adjustbox}
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-XBee Series 2 Platform
+XBee Series 2 Platform 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "xbeedatasheet"
@@ -2529,7 +2532,7 @@ name "tab:RF-Performance-Specifications"
 
 \end_inset
 
-
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "xbeedatasheet"
@@ -2714,7 +2717,7 @@ name "tab:Power-Specfications-for Xbee S2"
 
 \end_inset
 
-
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "xbeedatasheet"
@@ -2741,7 +2744,7 @@ XBee Series 2 Module Interfacing
 \begin_layout Standard
 The XBee module is interfaced through a logic-level asynchronous serial
  interface.
- The Pin connections utilized on the XBee platform is depicted in Table
+ The pin connections utilized on the XBee platform is depicted in Table
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3014,7 +3017,7 @@ name "tab:Relevant-Pin-Mapping for Xbee S2"
 \end_layout
 
 \begin_layout Standard
-As depicted in table 
+As depicted in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Relevant-Pin-Mapping for Xbee S2"
@@ -3035,9 +3038,9 @@ reference "fig:Signal-Waveform-of-UART-datapacket"
 \end_inset
 
 .
- When the transmission line is idle (i.e.
- nothing is transmitted) the pin should receive a constant high logic level.
- Start delimiter of the UART packet is a single bit a logic level low.
+ When the transmission line is idle (i.e.nothing is transmitted) the pin should
+ receive a constant high logic level.
+ The start delimiter of the UART packet is a single bit a logic level low.
  The payload of the packet follows immediately after the start delimiter.
  The maximum size of the payload is 1 byte (8 bits).
  After the last bit of the data payload is transmitted, a stop bit immediately
@@ -3180,7 +3183,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/UART Data Flow XbeeS2.png
-	scale 50
+	scale 45
 
 \end_inset
 
@@ -3244,7 +3247,7 @@ description "Personal Area Network"
 ) that consists of one coordinator, multiple routers and/or end devices.
  The first type of device within a ZigBee network is the Coordinator device.
  To construct a PAN, the coordinator must have a frequency channel and PAN
- ID selected on startup
+ ID selected on startup 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "xbeedatasheet"
@@ -3260,7 +3263,7 @@ key "xbeedatasheet"
  Once a device joins the PAN, a 16-bit network address will be assigned
  to it.
  Once this 16-bit address is assigned, the device can transmit/receive data
- with other particpating devices within the PAN.
+ with other participating devices within the PAN.
  The network address of the coordinator will always be 0.
  A XBee module can be configured to be a coordinator through setting the
  
@@ -3282,7 +3285,7 @@ The second type of device within a ZigBee network, is the Router device.
  join the PAN, and can assist in routing data throughout the PAN.
  When the Router device allows a device to join, it establishes a parent/child
  relationship in where the newly joined device is the child, and the Router
- device that the new device joined under, is the parent device
+ device that the new device joined under, is the parent device 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "xbeedatasheet"
@@ -3292,7 +3295,7 @@ key "xbeedatasheet"
 .
  This relationship holds true when a device joins under the Coordinator
  device as well.
- As a parent device, the Router device(or Coordinator device) can route
+ As a parent device, the Router device (or Coordinator device) can route
  data on behalf of a child device to ensure it reaches the correct destination.
  
 \end_layout
@@ -3325,10 +3328,10 @@ reference "fig:Zigbee-Network-Topology"
 
 \end_inset
 
-, the Router devices and Coordinator are located at the verticies of the
+, the Router devices and Coordinator are located at the vertices of the
  PAN network, which allows them to route data to different regions of the
  network.
- However the expansion of the PAN is discontiuned at the End devices.
+ However the expansion of the PAN is dis continued at the End devices.
  If the a new device wishes to join the network, it must join under the
  Coordinator device or a available Router device of that PAN.
 \end_layout
@@ -3385,7 +3388,7 @@ name "fig:Zigbee-Network-Topology"
 
 \end_inset
 
-
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "xbeedatasheet"
@@ -3418,7 +3421,7 @@ description "Institute of Electrical and Electronics Engineers\\\\"
 
 \end_inset
 
-) 802.15.4 protocol as depicited in Figure 
+) 802.15.4 protocol as depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:ZigBee802.15.4-OSI-Model"
@@ -3451,7 +3454,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/ZigBee_802-15-4-OSI.png
-	scale 70
+	scale 60
 
 \end_inset
 
@@ -3482,7 +3485,7 @@ name "fig:ZigBee802.15.4-OSI-Model"
 
 \end_inset
 
-
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ZIGBEENETWORKS"
@@ -3554,7 +3557,7 @@ description "Direct Sequence Spread Spectrum"
 
 \end_inset
 
-), Quadrature Phase Shift Keying(QPSK
+), Quadrature Phase Shift Keying (QPSK
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "QPSK"
@@ -3657,7 +3660,7 @@ key "ZIGBEENETWORKS"
 \end_layout
 
 \begin_layout Standard
-The DSSS scheme is advantegous in the sense that it reduces the interference
+The DSSS scheme is advantageous in the sense that it reduces the interference
  between frequency channels within the frequency band.
  The 802.15.4 MAC utilizes the Carrier Sense Multiple Acess-Collision Avoidance
  (CSMA-CA
@@ -3670,16 +3673,16 @@ description "Carrier Sense Multiple Access - Collision Avoidance"
 
 ).
  In CSMA-CA all participating nodes listen to the medium prior to transmit.
- If a node detects a spectral energy on the medium that is higher than a
- certain threshold, the node will declare the medium is in use.
+ If a node detects spectral energy on the medium that is higher than a certain
+ threshold, the node will declare the medium is in use.
  When the node detects that the medium is in use, it waits for a random
- period of time, known as random-backoff.
+ period of time, known as random-back off.
  After this period is up, the node will listen to the channel again in order
  to determine if the medium is not busy.
  If the medium is not busy, the node will transmit.
  If the node determines if the medium is still busy, it will increase the
- window for the random backoff period, and retry transmission.
- This process will be repeated, with increasing the random backoff period
+ window for the random back off period, and retry transmission.
+ This process will be repeated, with increasing the random back off period
  to a maximum pre-determined value, until the medium is determined as not
  busy.
  Combined with 802.11 LLC, the 802.15.4 supports star topology networks and
@@ -3728,7 +3731,14 @@ Unique Application Services such as clusters which are groups of nodes that
 
 \begin_layout Standard
 When a XBee module configured as a Coordinator device powers on, it performs
- the following procedure.
+ the following procedure 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ZIGBEENETWORKS"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -3766,7 +3776,14 @@ Repeat Steps 3 and 4 until a low energy frequency channel with no beacon
 
 \begin_layout Standard
 When a XBee module configured as a Router device is activated, it follows
- the following procedure for integrating into a PAN.
+ the following procedure for integrating into a PAN 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ZIGBEENETWORKS"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -3834,10 +3851,10 @@ key "xbeedatasheet"
 \end_inset
 
 .
- As disscused in the beginning of this section, the Coordinator of the PAN
+ As discussed in the beginning of this section, the Coordinator of the PAN
  will always have a 16-bit network address of 0.
  The other address type is 64-bit addressing.
- Every XBee module has a unqiue 64-bit address.
+ Every XBee module has a unique 64-bit address.
  This address is permanant for the XBee module.
  
 \end_layout
@@ -3849,7 +3866,7 @@ AT Command Mode Operation
 \begin_layout Standard
 The command mode grants the ability to modify parameters within the firmware
  of the XBee Series 2 module.
- To enter the command mode on the XBee platform, send the characters 
+ To enter the command mode on the XBee platform, the characters 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3857,7 +3874,7 @@ The command mode grants the ability to modify parameters within the firmware
 \begin_inset Quotes erd
 \end_inset
 
- to the DIN UART line.
+ are sent to the DIN UART line.
  Upon successful reception, the XBee module will respond with 
 \begin_inset Quotes eld
 \end_inset
@@ -3998,7 +4015,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/transparent_mode_xbee_example.png
-	scale 60
+	scale 50
 
 \end_inset
 
@@ -4255,7 +4272,7 @@ key "xbeedatasheet"
 .
  This feature gives the user the flexibility of constructing more complex
  networks topologies that included multiple XBee modules, as well as the
- flexibility to perform broadcasti/multicast transmissions.
+ flexibility to perform broadcast/multicast transmissions.
  To enable API mode for the XBee module, the 
 \begin_inset Quotes eld
 \end_inset
@@ -4287,7 +4304,7 @@ ATAP=1
 \end_layout
 
 \begin_layout Standard
-When in API mode, data is encapuslated within a UART dataframe structure
+When in API mode, data is encapsulated within a UART dataframe structure
  as depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4321,7 +4338,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/UART Data Frame Structure.png
-	scale 90
+	scale 80
 
 \end_inset
 
@@ -4370,7 +4387,7 @@ name "fig:Generic-UART-Dataframe"
 \end_layout
 
 \begin_layout Standard
-The start demiliter of the UART data frame denotes the start of the frame.
+The start delimiter of the UART data frame denotes the start of the frame.
  The start delimiter value will be 0x7E regardless of the type of API dataframe.
  The second field of the UART data frame is the Length field.
  The Length field specifies the number of bytes after the LSB, excluding
@@ -4386,7 +4403,7 @@ The start demiliter of the UART data frame denotes the start of the frame.
 \end_layout
 
 \begin_layout Enumerate
-Calculate the sum of all the bytes after the Least Signifcant Bit (
+Calculate the sum of all the bytes after the Least Significant Bit (LSB
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "LSB"
@@ -4462,7 +4479,7 @@ reference "fig:ZigBee-Transmit-Request-16bit"
  destination.
  The checksum is used for validating the data frame integrity as discussed
  earlier in this sub section.
- Data must be encapuslated in a data frame similar to the one in Figure
+ Data must be encapsulated in a data frame similar to the one in Figure
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4497,7 +4514,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/Tx16 Request.png
-	scale 90
+	scale 80
 
 \end_inset
 
@@ -4539,8 +4556,8 @@ name "fig:ZigBee-Transmit-Request-16bit"
 \end_layout
 
 \begin_layout Standard
-The ZigBee Recieve Packet (16 bit addressing) is the API type that is found
- when a packet is recieved from a transmitting source node that utilizes
+The ZigBee Receive Packet (16 bit addressing) is the API type that is found
+ when a packet is received from a transmitting source node that utilizes
  ZigBee Transmit Request API type.
  As depicted in Figure 
 \begin_inset CommandInset ref
@@ -4549,7 +4566,7 @@ reference "fig:ZigBee-Receive-Packet-16bit-addressing"
 
 \end_inset
 
-, the start delimiter, Most Significant Bit (
+, the start delimiter, Most Significant Bit (MSB
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "MSB"
@@ -4560,10 +4577,10 @@ description "Most Significant Bit"
 ) and LSB fields are similar to the structure of the ZigBee Transmit Request
  data frame.
  The API Identifier field however, is 0x81.
- This is the API identifier of ZigBee Recieve Packet for 16 bit addressing.
+ This is the API identifier of ZigBee Receive Packet for 16 bit addressing.
  After the API Identifier field, the Source Address field shows the 16 bit
  address of the transmitting node.
- The Received Signal Strength Index(
+ The Received Signal Strength Index(RSSI
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "RSSI"
@@ -4574,7 +4591,7 @@ description "Received Signal Strength Index "
 ) of the RF packet is characterized as a 1 byte value in the RSSI field.
  The RSSI value is helpful in determining the relative distance of the source
  node.
- The Options field specifies options such as packet acknowledgement.
+ The Options field specifies options such as packet acknowledgment.
  Similar to the ZigBee Transmit Request API data frame, the Payload of the
  ZigBee Receive Packet API data frame should never exceed 100 bytes.
  The last byte within the dataframe is the Checksum field.
@@ -4673,7 +4690,7 @@ The vision system used within the swarm algorithm is designed to report
  leading quadrotor within the cluster.
  The vision system utilizes a set of beacons and a camera system.
  The beacon used for experimentation was a Wii bar beacon as illustrated
- in figure 
+ in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Beacon-Structure-Used"
@@ -4681,9 +4698,9 @@ reference "fig:Beacon-Structure-Used"
 \end_inset
 
 .
- The beacon system is 20cm in length, and contains a group of 5 infrared
+ The beacon system is 20 cm in length, and contains a group of 5 infrared
  LEDs on each end.
- Each of the Light Emitting Diodes (
+ Each of the Light Emitting Diodes (LED
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "LED"
@@ -4691,7 +4708,7 @@ description "Light Emitting Diode"
 
 \end_inset
 
-) radiated light at a wavelength of 940 nanometers(
+) radiated light at a wavelength of 940 nanometers(nm
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "nm"
@@ -4802,7 +4819,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/wii sensor bar ir.png
-	scale 49
+	scale 45
 
 \end_inset
 
@@ -4862,7 +4879,7 @@ reference "fig:Raspberry-Pi-Model"
 
 ) processing platform.
  The Pi Camera is a 5 megapixel camera that attaches to the Raspberry Pi
- via Camera Interface Specifications(
+ via Camera Interface Specifications(CIS
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "CIS"
@@ -4870,7 +4887,7 @@ description "Camera Interface Specifications"
 
 \end_inset
 
-) version 2, or commonly referred to as CSI-2
+) version 2, or commonly referred to as CIS-2
 \begin_inset CommandInset citation
 LatexCommand cite
 key "magpi"
@@ -4907,8 +4924,8 @@ Swarm Topology
 \begin_layout Standard
 In this research, there are two types of nodes that can participate in the
  swarm.
- The first type, the leader quadrotor or commonly refered to as the coordinating
- quadrotor, is responsible for maintaing the geometric integrity of the
+ The first type, the leader quadrotor or commonly referred to as the coordinatin
+g quadrotor, is responsible for maintaing the geometric integrity of the
  swarm as well as coordinating overall movement of the swarm.
  The second type of node that can participate in the swarm is the follower.
  The follower, is responsible for estimating its position in relation to
@@ -4929,8 +4946,8 @@ reference "fig:Raspberry-Pi-Model"
 \end_inset
 
 .
- The Raspberry Pi Model B+ utilizes the ARM1176 Processor and operates witha
- debian based operating system.
+ The Raspberry Pi Model B+ utilizes the ARM1176 Processor and operates with
+ a Debian based operating system.
  The power consumption of the Raspberry Pi varies from 700 -1000mA
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -5060,9 +5077,9 @@ reference "fig:Transmission-Algorithm-communication-library"
 
 \end_inset
 
-, accepted the movment parameters used within the swarm algorithm, and compiled
- them into a formatted packet that was encapuslated by the existing ZigBee
- API frame.
+, accepted the movement parameters used within the swarm algorithm, and
+ compiled them into a formatted packet that was encapsulated by the existing
+ ZigBee API frame.
  This process accepted the following arguments
 \end_layout
 
@@ -5091,12 +5108,12 @@ Cluster ID (possible data types: integer)
 \end_layout
 
 \begin_layout Standard
-The raw_data_msg argument could be a simple string used to send an acknowledgeme
-nt to a swarm node, or it may be a list of movement parameters.
+The raw_data_msg argument could be a simple string used to send an acknowledgmen
+t to a swarm node, or it may be a list of movement parameters.
  The movement parameters used to characterize the nodes within the swarm
- were height (cm), perpendicularity(cm),linear distance(cm), and angular
+ were height (cm), perpendicularity(cm), linear distance(cm), and angular
  offset.
- If the raw_data_msg was a list of movemnet parameters(used for a movement
+ If the raw_data_msg was a list of movemnet parameters (used for a movement
  command or position report), the list of movement parameters would be compiled
  into a single byte array.
  The destination address, command identification(cmd_id), and the options
@@ -5107,7 +5124,6 @@ nt to a swarm node, or it may be a list of movement parameters.
 
 \begin_layout Standard
 \begin_inset Float figure
-placement t
 wide true
 sideways false
 status open
@@ -5128,6 +5144,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/transmit_process_xbee_library_driver.png
+	scale 80
 
 \end_inset
 
@@ -5253,7 +5270,7 @@ name "fig:General-Dataframe-Structure"
 \end_layout
 
 \begin_layout Standard
-Whether the communication library is constructing a simple acknowledgement
+Whether the communication library is constructing a simple acknowledgment
  packet, a movement command packet with movement parameters, or a position
  report packet with movement parameters, the header format will be the same
  during transmission.
@@ -5272,14 +5289,15 @@ Receiving Packets:
 
 \begin_layout Standard
 The responsibility of this function is to validate the integrity of all
- received data packets and extract the swarm specific data packet successfully.Th
-e process was engineered to receive and process multiple packets at a time.
+ received data packets and extract the swarm specific data packet successfully.
+ The process was engineered to receive and process multiple packets at a
+ time.
  The only argument that this process accepts is a verbose flag.
  When this flag is set to 1, the process will log all events for debugging
  purposes.
  At the conclusion of the process, a list of packets are returned if multiple
  packets were received at the node.
- Otherwise,a single bytearray that represents the packet is returned.
+ Otherwise, a single byte array that represents the packet is returned.
  The function follows this process to successfully extract the data from
  the received packets.
  
@@ -5295,7 +5313,7 @@ Detect if any packets have been received.
 
 \begin_layout Enumerate
 Parse the contents of the UART receive buffer into the respective data packets.
- If there are multiple packets within the buffer(the module has received
+ If there are multiple packets within the buffer (the module has received
  multiple packets at the same time), the data is seperated through the detection
  of the start delimiter of each packet.
  
@@ -5405,7 +5423,7 @@ This function reports various parameters of the XBee module such as the
 \end_layout
 
 \begin_layout Section
-Fine -Grained Position Coordination
+Fine-Grained Position Coordination
 \end_layout
 
 \begin_layout Standard
@@ -5476,7 +5494,7 @@ end{adjustbox}
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Swarm Topology for a Single Cluster used in Research
+Swarm Topology for a Single Cluster used in Research Testbed
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Swarm-Topology-for-single-cluster-in-research"
@@ -5509,8 +5527,8 @@ reference "fig:Degrees-of-Motion"
  shows that the degrees of motion are perpendicularity, distance, and angular
  displacement.
  There is also a fourth degree of motion which is altitude.
- All of these degrees of motion have to be monitored and maintatined if
- the swarm is to maintain its geometric integrity.
+ All of these degrees of motion have to be monitored and maintained if the
+ swarm is to maintain its geometric integrity.
  The ideal motion parameters for a follower node within a swarm were as
  follows 
 \end_layout
@@ -5632,9 +5650,9 @@ Since the center of the leader quadrotor is perpendicular to the center
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 Offset_{perpendicular}=tan^{-1}(26.5^{o}*66.04cm)
-\]
+\end{equation}
 
 \end_inset
 
@@ -5655,16 +5673,16 @@ At the distance of 66.04 cm, the follower quadrotor has a perpendicularity
  Using the 26.5 degree offset of the boundary like before, it was determined
  that there is a 37 degree angle between the two boundaries.
  With this information, and the the ideal distance of 66.04cm, the law of
- cosines can be used to determine the amount of perpendicualrity distance
+ cosines can be used to determine the amount of perpendicularity distance
  in the void that was present.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
-\[
+\begin{equation}
 Distance_{Perpendicularity}=(64.04cm)^{2}*(64.04cm)^{2}-2(64.04)(64.04)*cos(37^{o})
-\]
+\end{equation}
 
 \end_inset
 
@@ -5679,8 +5697,8 @@ This distance in the perpendicularity freedom of motion was calculated to
  perpendicularity offset boundary.
  However, since this distance cannot be ideal, a tolerance for the distance
  freedom of motion must be established.
- It was determined that having a tolerance of 15.24cm for the distance freedom
- of motion, would allow for a suffucient distance between the perpendicularity
+ It was determined that having a tolerance of 15.24 cm for the distance freedom
+ of motion, would allow for a sufficient distance between the perpendicularity
  boundaries.
  
 \end_layout
@@ -5717,7 +5735,7 @@ reference "fig:Boundary-Concept-Utilized"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -5789,7 +5807,7 @@ reference "fig:Central-Routing-Algorithm"
 \end_inset
 
 .
- The Central Routing Algorithm(
+ The Central Routing Algorithm(CRA
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "CRA"
@@ -5805,7 +5823,7 @@ description "Central Routing Algorithm"
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement H
 wide false
 sideways false
 status open
@@ -5826,7 +5844,7 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/central routing algorithm_fine_grained.png
-	scale 89
+	scale 75
 
 \end_inset
 
@@ -5882,7 +5900,7 @@ Coarse-Grain Position and Movement Vector Construction
 Where the Fine-Grain Position Coordination establishes the geometric integrity
  of the swarm, the Coarse-Grain Position Coordination establishes a communicatio
 n framework that allows the swarm to move towards a certain location.
- Coarse-Grain Position Cooridnation is where the leader node receives a
+ Coarse-Grain Position Coordination is where the leader node receives a
  objective to move to (ex.
  following a main beacon), and relays this data to the corresponding swarm
  cluster.
@@ -5890,10 +5908,10 @@ n framework that allows the swarm to move towards a certain location.
  the movement parameters that it needs to take to each to reach the objective
  to each of the participating followers within the cluster in the form of
  movement commands in a similar fashion of the CRA protocol.
- However, once the leader node receives all acknowledgements in the cluster,
+ However, once the leader node receives all acknowledgments in the cluster,
  it will broadcast to the cluster that it has started to move.
  If the swarm must travel to a objective at an offset angle from it current
- location, the leader node will interpet in a format of Perpendicularity
+ location, the leader node will interpret in a format of Perpendicularity
  movement commands and distance movement commands.
  The swarm nodes will move in the Angular offset direction, then the Height
  direction, then the Perpendicularity direction then the Distance movement
@@ -5907,7 +5925,7 @@ Swarm Maintenance
 \begin_layout Standard
 During the lifetime of the swarm, participating quadrotors may join or leave.
  Quadrotors may leave the swarm due to interference in the communication
- link, loss of battery power, or due to pheonomenon in the atmosphere.
+ link, loss of battery power, or due to phenomenon in the atmosphere.
  The leader node determines that a participating quadrotor within the cluster
  has left when any of these scenarios occur.
  
@@ -5919,7 +5937,7 @@ The follower quadrotor fails to respond with a position data report to the
 \end_layout
 
 \begin_layout Itemize
-The follower quadrotor fails to ACK the leader quadrotor after 3 re transmission
+The follower quadrotor fails to ACK the leader quadrotor after 3 re-transmission
 s.
 \end_layout
 
@@ -5932,15 +5950,15 @@ The follower quadrotor responds with
 \begin_inset Quotes erd
 \end_inset
 
- on all movment parameters(indicates it has lost line of sight of the leader
- quadrotor within the cluster) on a data report to the leader quadrotor
- for more than two communication slots(handshake periods).
+ on all movement parameters (indicates it has lost line of sight of the
+ leader quadrotor within the cluster) on a data report to the leader quadrotor
+ for more than two communication slots (handshake periods).
  
 \end_layout
 
 \begin_layout Standard
 The swarm algorithm gives the option to allow a quadrotor to join the swarm.
- If a quadrotor wishes to join a swarm, and is in the Line of Sight (
+ If a quadrotor wishes to join a swarm, and is in the Line of Sight(LOS
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 symbol "LOS"
@@ -5957,7 +5975,7 @@ description "Line Of Sight"
  The follower will listen to movement commands received by the leader node,
  as well as provide Fine-Grain Movement Coordination for the newly joined
  quadrotor under the new cluster.
- This functionality is limited as the new-comming quadrotor needs to know
+ This functionality is limited as the new-coming quadrotor needs to know
  the network ID of the follower that it is joining before hand as well as
  be in the LOS of its vision system.
 \end_layout
@@ -5988,15 +6006,15 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-This thesis outlined a framework that can establish a DE-centralized swarm
+This thesis outlined a framework that can establish a de-centralized swarm
  algorithm through establishing the swarm coordination process on the swarm
- itself, which is referred to as a DE-centralized quadrotor swarm.
- This De-centralized swarm algorithm successfully utilized a on-board vision
+ itself, which is referred to as a de-centralized quadrotor swarm.
+ This de-centralized swarm algorithm successfully utilized a on-board vision
  system in a way to provide position data of all participating nodes and
- use the obtained position data to provide movement coordiantion throughout
+ use the obtained position data to provide movement coordination throughout
  the swarm.
- This was achieved through maintating the geometric integrity of the swarm
- through Fine-Grain Coordiantion, and providing the framework for swarm
+ This was achieved through maintaining the geometric integrity of the swarm
+ through Fine-Grain Coordination, and providing the framework for swarm
  movement through Coarse-Grain Coordination.
 \end_layout
 
@@ -6008,7 +6026,7 @@ Performance Limitations
 The more prevalent performance limitations within the swarm system can be
  seen as the number of participants increase in the overall swarm.
  The efficacy of the swarm algorithm depends on how quickly it can process
- accurate position data and propagate that information for movement coordiantion.
+ accurate position data and propagate that information for movement coordination.
  As the participants in the swarm increase, the latency required to provide
  movement coordination increases, because more nodes must be attended to
  before movement can actually start.
@@ -6026,10 +6044,10 @@ As the participants within the swarm increase, the measurement error within
  easily.
  For very large swarms, measurement error will be highest in remote regions
  of the swarm, and will be observed through erroneous swarm following and
- degredation of the geometry of the swarm.
+ degradation of the geometry of the swarm.
  This phenomenon is attributed to the vision system utilized within the
  swarm process since it is a measurement device, and always has a accompanied
- measurement error with every measuremnt.
+ measurement error with every measurement.
  
 \end_layout
 
@@ -6045,12 +6063,12 @@ Self Healing Swarm Topologies
 Self healing swarm topologies are topologies that dynamically change during
  operation in order to compensate for a group of node failures.
  This is attractive for situations in where the environment is harsh, and
- the likelyhood of destroyed nodes maybe moderately high.
- This is a interesting topic in the sense, that even more situational awareness
+ the likelihood of destroyed nodes maybe moderately high.
+ This is a interesting topic in the sense, that even more situation awareness
  will be needed between the followers of the swarm.
- More situational awarness will be needed between the followers in the swarm,
+ More situation awareness will be needed between the followers in the swarm,
  so that a picture of the swarm topology would be known by the participants
- and the appropiate movement cooridnation can take place to modify it while
+ and the appropriate movement coordination can take place to modify it while
  maintaining its overall general geometry.
  
 \end_layout
@@ -6062,7 +6080,7 @@ Self Forming Swarm Topologies
 \begin_layout Standard
 Like self healing swarm topologies, more sophistication may be needed within
  the swarm in such a way that a coordination process may be able to provide
- complex movement commands to participants of the swarm simutaneously so
+ complex movement commands to participants of the swarm simultaneously so
  that a new topology can be shaped.
  A more advanced algorithm may be needed to achieve this.
  
