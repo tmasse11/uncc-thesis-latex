@@ -731,36 +731,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{adjustbox}{center}
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
 	filename figs/DHL_quadrotor.jpg
 	scale 50
 	rotateOrigin leftBottom
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustbox}
-\end_layout
 
 \end_inset
 
@@ -873,34 +847,8 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{adjustbox}{center}
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
 	filename figs/quadrotor_dyanmic_model.png
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustbox}
-\end_layout
 
 \end_inset
 
@@ -1343,34 +1291,8 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{adjustbox}{center}
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
 	filename figs/GRASP quadrotor platform.png
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustbox}
-\end_layout
 
 \end_inset
 
@@ -1440,35 +1362,9 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{adjustbox}{center}
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
 	filename figs/system_level_arch_GRASP.png
-	scale 74
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustbox}
-\end_layout
+	scale 85
 
 \end_inset
 
@@ -1554,34 +1450,8 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{adjustbox}{center}
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
 	filename figs/quadrotor_swarm_architecture_GRASP.png
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustbox}
-\end_layout
 
 \end_inset
 
@@ -1726,19 +1596,6 @@ begin{adjustbox}{center}
 
 \begin_inset Graphics
 	filename figs/micro-quadrotor-swarm-GRASP.png
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{adjustbox}
-\end_layout
 
 \end_inset
 
