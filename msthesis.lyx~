@@ -402,15 +402,6 @@ addcontentsline{toc}{chapter}{
 nomname}
 \end_layout
 
-\begin_layout Plain Layout
-
-
-\backslash
-setlength{
-\backslash
-nomname}{0mm}
-\end_layout
-
 \end_inset
 
 
